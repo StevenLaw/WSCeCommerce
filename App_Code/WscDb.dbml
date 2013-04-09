@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="WSCDatabase" Class="WscDbDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=.\SQLEXPRESS;AttachDbFilename=|DataDirectory|\WSCDatabase.mdf;Integrated Security=True;User Instance=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="WSCDatabaseConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Customer" Member="Customers">
+    <Type Name="Customer">
+      <Column Name="CustomerId" Type="System.Decimal" DbType="Decimal(6,0) NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="UserName" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="FName" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="LName" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Address" Type="System.String" DbType="VarChar(150) NOT NULL" CanBeNull="false" />
+      <Column Name="City" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="ProvState" Type="System.String" DbType="NChar(2) NOT NULL" CanBeNull="false" />
+      <Column Name="PostalZip" Type="System.String" DbType="VarChar(7) NOT NULL" CanBeNull="false" />
+      <Column Name="Country" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Phone" Type="System.String" DbType="NChar(14)" CanBeNull="true" />
+      <Column Name="Email" Type="System.String" DbType="VarChar(150) NOT NULL" CanBeNull="false" />
+      <Association Name="Customer_Transaction" Member="Transactions" ThisKey="CustomerId" OtherKey="Customer" Type="Transaction" />
+      <Association Name="ProvinceState_Customer" Member="ProvinceState" ThisKey="ProvState" OtherKey="PSCode" Type="ProvinceState" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.[Transaction]" Member="Transactions">
+    <Type Name="Transaction">
+      <Column Name="TransactionId" Type="System.Decimal" DbType="Decimal(10,0) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Customer" Type="System.Decimal" DbType="Decimal(6,0)" CanBeNull="true" />
+      <Column Name="DateOfSale" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="Transaction_OrderLine" Member="OrderLines" ThisKey="TransactionId" OtherKey="TransactionId" Type="OrderLine" />
+      <Association Name="Customer_Transaction" Member="Customer1" ThisKey="Customer" OtherKey="CustomerId" Type="Customer" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.OrderLine" Member="OrderLines">
+    <Type Name="OrderLine">
+      <Column Name="TransactionId" Type="System.Decimal" DbType="Decimal(10,0) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="PID" Type="System.Decimal" DbType="Decimal(5,0) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Quantity" Type="System.Decimal" DbType="Decimal(7,0) NOT NULL" CanBeNull="false" />
+      <Column Name="PriceAtSale" Type="System.Decimal" DbType="Money NOT NULL" CanBeNull="false" />
+      <Association Name="Transaction_OrderLine" Member="Transaction" ThisKey="TransactionId" OtherKey="TransactionId" Type="Transaction" IsForeignKey="true" />
+      <Association Name="Product_OrderLine" Member="Product" ThisKey="PID" OtherKey="PID" Type="Product" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Product" Member="Products">
+    <Type Name="Product">
+      <Column Name="PID" Type="System.Decimal" DbType="Decimal(5,0) NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Type" Type="System.Decimal" DbType="Decimal(4,0) NOT NULL" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Quantity" Type="System.Decimal" DbType="Decimal(5,0) NOT NULL" CanBeNull="false" />
+      <Column Name="Price" Type="System.Decimal" DbType="Money NOT NULL" CanBeNull="false" />
+      <Association Name="Product_OrderLine" Member="OrderLines" ThisKey="PID" OtherKey="PID" Type="OrderLine" />
+      <Association Name="ProductType_Product" Member="ProductType" ThisKey="Type" OtherKey="PTId" Type="ProductType" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ProductType" Member="ProductTypes">
+    <Type Name="ProductType">
+      <Column Name="PTId" Type="System.Decimal" DbType="Decimal(4,0) NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Type" Type="System.Char" DbType="NChar(1) NOT NULL" CanBeNull="false" />
+      <Association Name="ProductType_Product" Member="Products" ThisKey="PTId" OtherKey="Type" Type="Product" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ProvinceState" Member="ProvinceStates">
+    <Type Name="ProvinceState">
+      <Column Name="PSCode" Type="System.String" DbType="NChar(2) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Association Name="ProvinceState_Customer" Member="Customers" ThisKey="PSCode" OtherKey="ProvState" Type="Customer" />
+    </Type>
+  </Table>
+</Database>
