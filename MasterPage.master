@@ -12,9 +12,9 @@
     <div>
         <div class="header">
             <h1>Williams Specialty Company</h1>
-            <div class="breadcrumbs">
-                <asp:SiteMapPath ID="SiteMapPath1" runat="server">
-                </asp:SiteMapPath>
+            <div class="breadcrumbs" id="Home">
+                <asp:LinkButton ID="lnkHome" runat="server" PostBackUrl="~/Default.aspx">Home</asp:LinkButton>
+                <asp:LinkButton ID="lnkCart" runat="server" PostBackUrl="~/ViewCart.aspx">View Cart (5)</asp:LinkButton>
             </div>
             <div class="loginView">
                 <asp:LoginView ID="LoginView1" runat="server">
@@ -28,10 +28,10 @@
             </div>
         </div>
         <div class="navBar">
-            <asp:Menu ID="Menu1" runat="server" DataSourceID="SiteMapDataSource1" 
-                CssClass="navSubMenu">
-            </asp:Menu>
-            <asp:SiteMapDataSource ID="SiteMapDataSource1" runat="server" />
+            <asp:TreeView ID="TreeView1" runat="server" DataSourceID="SiteMapDataSource1">
+            </asp:TreeView>
+            <asp:SiteMapDataSource ID="SiteMapDataSource1" runat="server" 
+                ShowStartingNode="False" />
         </div>
         <div class="content">
             <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
