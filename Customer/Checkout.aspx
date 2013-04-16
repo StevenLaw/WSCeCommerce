@@ -30,9 +30,13 @@
     <asp:TextBox ID="TextBox3" runat="server"></asp:TextBox>
     <br />
     <div class="descriptor">Province/State:</div>
-    <asp:DropDownList ID="DropDownList1" runat="server">
-        <asp:ListItem>Alberta</asp:ListItem>
+    <asp:DropDownList ID="DropDownList1" runat="server" 
+        DataSourceID="ldsProvinceState" DataTextField="Name" DataValueField="PSCode">
     </asp:DropDownList>
+    <asp:LinqDataSource ID="ldsProvinceState" runat="server" 
+        ContextTypeName="WscDbDataContext" EntityTypeName="" 
+        Select="new (PSCode, Name)" TableName="ProvinceStates">
+    </asp:LinqDataSource>
     <br />
     <div class="descriptor">Country:</div>
     <asp:TextBox ID="TextBox4" runat="server"></asp:TextBox>
