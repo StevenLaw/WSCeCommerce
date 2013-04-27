@@ -20,8 +20,9 @@
   <Table Name="dbo.[Transaction]" Member="Transactions">
     <Type Name="Transaction">
       <Column Name="TransactionId" Type="System.Decimal" DbType="Decimal(10,0) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="Customer" Type="System.Decimal" DbType="Decimal(6,0)" CanBeNull="true" />
-      <Column Name="DateOfSale" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Customer" Type="System.Decimal" DbType="Decimal(6,0) NOT NULL" CanBeNull="false" />
+      <Column Name="DateOfSale" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="ShipDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
       <Association Name="Transaction_OrderLine" Member="OrderLines" ThisKey="TransactionId" OtherKey="TransactionId" Type="OrderLine" />
       <Association Name="Customer_Transaction" Member="Customer1" ThisKey="Customer" OtherKey="CustomerId" Type="Customer" IsForeignKey="true" />
     </Type>
@@ -32,6 +33,9 @@
       <Column Name="PID" Type="System.Decimal" DbType="Decimal(5,0) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Column Name="Quantity" Type="System.Decimal" DbType="Decimal(7,0) NOT NULL" CanBeNull="false" />
       <Column Name="PriceAtSale" Type="System.Decimal" DbType="Money NOT NULL" CanBeNull="false" />
+      <Column Name="Completed" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+      <Column Name="Message" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Column Name="PrintImage" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
       <Association Name="Transaction_OrderLine" Member="Transaction" ThisKey="TransactionId" OtherKey="TransactionId" Type="Transaction" IsForeignKey="true" />
       <Association Name="Product_OrderLine" Member="Product" ThisKey="PID" OtherKey="PID" Type="Product" IsForeignKey="true" />
     </Type>
@@ -43,6 +47,8 @@
       <Column Name="Name" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="Quantity" Type="System.Decimal" DbType="Decimal(5,0) NOT NULL" CanBeNull="false" />
       <Column Name="Price" Type="System.Decimal" DbType="Money NOT NULL" CanBeNull="false" />
+      <Column Name="Description" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Column Name="Image" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
       <Association Name="Product_OrderLine" Member="OrderLines" ThisKey="PID" OtherKey="PID" Type="OrderLine" />
       <Association Name="ProductType_Product" Member="ProductType" ThisKey="Type" OtherKey="PTId" Type="ProductType" IsForeignKey="true" />
     </Type>

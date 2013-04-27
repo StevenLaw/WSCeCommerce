@@ -507,9 +507,11 @@ public partial class Transaction : INotifyPropertyChanging, INotifyPropertyChang
 	
 	private decimal _TransactionId;
 	
-	private System.Nullable<decimal> _Customer;
+	private decimal _Customer;
 	
-	private System.Nullable<System.DateTime> _DateOfSale;
+	private System.DateTime _DateOfSale;
+	
+	private System.Nullable<System.DateTime> _ShipDate;
 	
 	private EntitySet<OrderLine> _OrderLines;
 	
@@ -521,10 +523,12 @@ public partial class Transaction : INotifyPropertyChanging, INotifyPropertyChang
     partial void OnCreated();
     partial void OnTransactionIdChanging(decimal value);
     partial void OnTransactionIdChanged();
-    partial void OnCustomerChanging(System.Nullable<decimal> value);
+    partial void OnCustomerChanging(decimal value);
     partial void OnCustomerChanged();
-    partial void OnDateOfSaleChanging(System.Nullable<System.DateTime> value);
+    partial void OnDateOfSaleChanging(System.DateTime value);
     partial void OnDateOfSaleChanged();
+    partial void OnShipDateChanging(System.Nullable<System.DateTime> value);
+    partial void OnShipDateChanged();
     #endregion
 	
 	public Transaction()
@@ -554,8 +558,8 @@ public partial class Transaction : INotifyPropertyChanging, INotifyPropertyChang
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Customer", DbType="Decimal(6,0)")]
-	public System.Nullable<decimal> Customer
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Customer", DbType="Decimal(6,0) NOT NULL")]
+	public decimal Customer
 	{
 		get
 		{
@@ -578,8 +582,8 @@ public partial class Transaction : INotifyPropertyChanging, INotifyPropertyChang
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DateOfSale", DbType="DateTime")]
-	public System.Nullable<System.DateTime> DateOfSale
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DateOfSale", DbType="DateTime NOT NULL")]
+	public System.DateTime DateOfSale
 	{
 		get
 		{
@@ -594,6 +598,26 @@ public partial class Transaction : INotifyPropertyChanging, INotifyPropertyChang
 				this._DateOfSale = value;
 				this.SendPropertyChanged("DateOfSale");
 				this.OnDateOfSaleChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ShipDate", DbType="DateTime")]
+	public System.Nullable<System.DateTime> ShipDate
+	{
+		get
+		{
+			return this._ShipDate;
+		}
+		set
+		{
+			if ((this._ShipDate != value))
+			{
+				this.OnShipDateChanging(value);
+				this.SendPropertyChanging();
+				this._ShipDate = value;
+				this.SendPropertyChanged("ShipDate");
+				this.OnShipDateChanged();
 			}
 		}
 	}
@@ -638,7 +662,7 @@ public partial class Transaction : INotifyPropertyChanging, INotifyPropertyChang
 				}
 				else
 				{
-					this._Customer = default(Nullable<decimal>);
+					this._Customer = default(decimal);
 				}
 				this.SendPropertyChanged("Customer1");
 			}
@@ -692,6 +716,12 @@ public partial class OrderLine : INotifyPropertyChanging, INotifyPropertyChanged
 	
 	private decimal _PriceAtSale;
 	
+	private System.Nullable<char> _Completed;
+	
+	private string _Message;
+	
+	private string _PrintImage;
+	
 	private EntityRef<Transaction> _Transaction;
 	
 	private EntityRef<Product> _Product;
@@ -708,6 +738,12 @@ public partial class OrderLine : INotifyPropertyChanging, INotifyPropertyChanged
     partial void OnQuantityChanged();
     partial void OnPriceAtSaleChanging(decimal value);
     partial void OnPriceAtSaleChanged();
+    partial void OnCompletedChanging(System.Nullable<char> value);
+    partial void OnCompletedChanged();
+    partial void OnMessageChanging(string value);
+    partial void OnMessageChanged();
+    partial void OnPrintImageChanging(string value);
+    partial void OnPrintImageChanged();
     #endregion
 	
 	public OrderLine()
@@ -801,6 +837,66 @@ public partial class OrderLine : INotifyPropertyChanging, INotifyPropertyChanged
 				this._PriceAtSale = value;
 				this.SendPropertyChanged("PriceAtSale");
 				this.OnPriceAtSaleChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Completed", DbType="Char(1)")]
+	public System.Nullable<char> Completed
+	{
+		get
+		{
+			return this._Completed;
+		}
+		set
+		{
+			if ((this._Completed != value))
+			{
+				this.OnCompletedChanging(value);
+				this.SendPropertyChanging();
+				this._Completed = value;
+				this.SendPropertyChanged("Completed");
+				this.OnCompletedChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Message", DbType="VarChar(500)")]
+	public string Message
+	{
+		get
+		{
+			return this._Message;
+		}
+		set
+		{
+			if ((this._Message != value))
+			{
+				this.OnMessageChanging(value);
+				this.SendPropertyChanging();
+				this._Message = value;
+				this.SendPropertyChanged("Message");
+				this.OnMessageChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PrintImage", DbType="VarChar(20)")]
+	public string PrintImage
+	{
+		get
+		{
+			return this._PrintImage;
+		}
+		set
+		{
+			if ((this._PrintImage != value))
+			{
+				this.OnPrintImageChanging(value);
+				this.SendPropertyChanging();
+				this._PrintImage = value;
+				this.SendPropertyChanged("PrintImage");
+				this.OnPrintImageChanged();
 			}
 		}
 	}
@@ -910,6 +1006,10 @@ public partial class Product : INotifyPropertyChanging, INotifyPropertyChanged
 	
 	private decimal _Price;
 	
+	private string _Description;
+	
+	private string _Image;
+	
 	private EntitySet<OrderLine> _OrderLines;
 	
 	private EntityRef<ProductType> _ProductType;
@@ -928,6 +1028,10 @@ public partial class Product : INotifyPropertyChanging, INotifyPropertyChanged
     partial void OnQuantityChanged();
     partial void OnPriceChanging(decimal value);
     partial void OnPriceChanged();
+    partial void OnDescriptionChanging(string value);
+    partial void OnDescriptionChanged();
+    partial void OnImageChanging(string value);
+    partial void OnImageChanged();
     #endregion
 	
 	public Product()
@@ -1037,6 +1141,46 @@ public partial class Product : INotifyPropertyChanging, INotifyPropertyChanged
 				this._Price = value;
 				this.SendPropertyChanged("Price");
 				this.OnPriceChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Description", DbType="VarChar(500)")]
+	public string Description
+	{
+		get
+		{
+			return this._Description;
+		}
+		set
+		{
+			if ((this._Description != value))
+			{
+				this.OnDescriptionChanging(value);
+				this.SendPropertyChanging();
+				this._Description = value;
+				this.SendPropertyChanged("Description");
+				this.OnDescriptionChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Image", DbType="VarChar(20)")]
+	public string Image
+	{
+		get
+		{
+			return this._Image;
+		}
+		set
+		{
+			if ((this._Image != value))
+			{
+				this.OnImageChanging(value);
+				this.SendPropertyChanging();
+				this._Image = value;
+				this.SendPropertyChanged("Image");
+				this.OnImageChanged();
 			}
 		}
 	}
