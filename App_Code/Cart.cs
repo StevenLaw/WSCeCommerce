@@ -8,9 +8,10 @@ public struct CartItem
 {
     public Product Item { get; set; }
     public int Quantity { get; set; }
-    public double Price { get; set; }
+    public decimal Price { get; set; }
     public string Message { get; set; }
     public string PrintImage { get; set; }
+    public decimal Total { get { return Quantity * Price; } }
 }
 
 /// <summary>
@@ -34,7 +35,7 @@ public class Cart : Collection<CartItem>, IEnumerable
     /// <param name="price">The price.</param>
     /// <param name="message">The message.</param>
     /// <param name="image">The image.</param>
-    public void AddItem(Product prod, int qty, double price, string message, string image = "")
+    public void AddItem(Product prod, int qty, decimal price, string message, string image = "")
     {
         CartItem tmp = new CartItem
         {
@@ -81,11 +82,11 @@ public class Cart : Collection<CartItem>, IEnumerable
     /// Gets the sub total.
     /// </summary>
     /// <returns>The sub total of all of the items in the cart</returns>
-    public double GetSubTotal()
+    public decimal GetSubTotal()
     {
-        double subTotal = 0;
+        decimal subTotal = 0;
         foreach (CartItem item in this)
-            subTotal += item.Price;
+            subTotal += item.Total;
         return subTotal;
     }
 

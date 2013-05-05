@@ -1,0 +1,93 @@
+Customer Records
+
+UserName, FName, LName, Address, City, ProvState, PostalZip, Country, Phone, Email
+
+Rockley, Rockley, Ice, 2928 Hidden Highway, Skull Run, NV, 89895-3909, United States, (775) 862-5428, rockice@myspace.com
+Capers, Capers, Needham, 4071 Burning Circle, Whynot, ID, 83244-2223, United States, (208) 675-7033, needhamc@freewebmail.com
+Arora, Arora, Ashton, 5851 Gentle Robin End, Shopishk, NU, X5P-5I2, X5P-5I2, (867) 290-1498, Arora-Ashton@infoseller.com
+Morten, Morten, Aman, 6800 Sleepy Circuit, Wahoo Valley, AK, 99773-3488, United States, (907) 892-5078, MAman@yahoo.com
+Brady, Brady, Etheridge, 8522 Sunny Quail Knoll, California Bar, RI, 02998-2323, United States, (401) 670-5507, brady_etheridge@info.com
+Nelleke, Nelleke, Tindell, 9199 Fallen Link, Horse Pasture, FL, 34001-7217, United States, (754) 903-1954, nelleke.tindell@freewebmail.com
+Atmajyoti, Atmajyoti, Putnam, 9954 Jagged Pond Downs, Cuba, SD, 57062-0575, United States, (605) 031-1734, aputnam@myspace.com@
+Oliana, Oliana, Reichard, 749 Indian Fox Key, Pall Mall, NL, A2L-8Y6, Canada, (709) 979-9830, o.reichard@yahoo.ca
+Charissa, Charissa, Pride, 8616 High Cider Avenue, Crackertown, NJ, 07086-5352, United States, (609) 104-1828, charissa-pride@infoseller.com
+Guntur, Guntur, Javier, 5073 Cotton Zephyr Ledge, Heartstrong, ID, 83971-5632, United States, (208) 382-5203, gunturj@toodles.com
+Shantell, Shantell, Sheets, 5654 Emerald Shadow Rise, Tea, OK, 74499-8891, United States, (405) 661-7966, ssheets@linux.com
+Bhavesh, Bhavesh, Carbone, 7736 Lost Hickory Private, Togo, NJ, 08650-7014, United States, (201) 513-8650, bcarbone@geocities.com
+Dena, Dena, McGinn, 5260 Dewy Ramp, Witchwood, AK, 99918-7917, United States, (907) 178-0388, denamcginn@freespace.com
+Arika, Arika, Mccrary, 8188 Golden Farms, Swiss Bar, AB, T1F-0P1, Canada, (780) 802-4472, amccrary@geocities.com
+Darby, Darby, Saathoff, 6315 Iron Creek Inlet, Whiskey Bottom, AL, 36422-6749, United States, (251) 102-1897, darbysaathoff@infoseller.com
+Sharni, Sharni, Odowd, 9305 Wishing Timber Plaza, Turnkey, HI, 96845-7848, United States, (808) 773-3482, sharniodowd@booksmart.com
+Urania, Urania, Sultan, 7189 Tawny Trail, Frink, NY, 13645-5783, United States, (716) 586-3877, uraniasultan@msn.com
+Pavi, Pavi, Fleischmann, 2410 Green Bluff Concession, Gayhead, BC, V7T-2O5, Canada, (778) 439-6488, pavi-fleischmann@yahoo.ca
+Autolucus, Autolucus, Usher, 2473 Round Prairie Common, Polar, OK, 73945-6788, United States, (539) 466-4667, ausher@webmail.com
+Ultreia, Ultreia, Panos, 1768 Little Vale, Deer Lodge, FL, 32809-1961, United States, (386) 576-6486, ultreiapanos@yoohoo.com
+
+SQL
+
+Insert into dbo.Customer (UserName,  FName,  LName,  Address,  City,  ProvState,  PostalZip,  Country,  Phone,  Email) 
+Values ('Rockley', 'Rockley', 'Ice', '2928 Hidden Highway', 'Skull Run', 'NV', '89895-3909', 'United States', '(775) 862-5428', 'rockice@myspace.com');
+Insert into dbo.Customer (UserName,  FName,  LName,  Address,  City,  ProvState,  PostalZip,  Country,  Phone,  Email) 
+Values ('Capers', 'Capers', 'Needham', '4071 Burning Circle', 'Whynot', 'ID', '83244-2223', 'United States', '(208) 675-7033', 'needhamc@freewebmail.com');
+Insert into dbo.Customer (UserName,  FName,  LName,  Address,  City,  ProvState,  PostalZip,  Country,  Phone,  Email) 
+Values ('Arora', 'Arora', 'Ashton', '5851 Gentle Robin End', 'Shopishk', 'NU', 'X5P-5I2', 'X5P-5I2', '(867) 290-1498', 'Arora-Ashton@infoseller.com');
+Insert into dbo.Customer (UserName,  FName,  LName,  Address,  City,  ProvState,  PostalZip,  Country,  Phone,  Email) 
+Values ('Morten', 'Morten', 'Aman', '6800 Sleepy Circuit', 'Wahoo Valley', 'AK', '99773-3488', 'United States', '(907) 892-5078', 'MAman@yahoo.com');
+Insert into dbo.Customer (UserName,  FName,  LName,  Address,  City,  ProvState,  PostalZip,  Country,  Phone,  Email) 
+Values ('Brady', 'Brady', 'Etheridge', '8522 Sunny Quail Knoll', 'California Bar', 'RI', '02998-2323', 'United States', '(401) 670-5507', 'brady_etheridge@info.com');
+Insert into dbo.Customer (UserName,  FName,  LName,  Address,  City,  ProvState,  PostalZip,  Country,  Phone,  Email) 
+Values ('Nelleke', 'Nelleke', 'Tindell', '9199 Fallen Link', 'Horse Pasture', 'FL', '34001-7217', 'United States', '(754) 903-1954', 'nelleke.tindell@freewebmail.com');
+Insert into dbo.Customer (UserName,  FName,  LName,  Address,  City,  ProvState,  PostalZip,  Country,  Phone,  Email) 
+Values ('Atmajyoti', 'Atmajyoti', 'Putnam', '9954 Jagged Pond Downs', 'Cuba', 'SD', '57062-0575', 'United States', '(605) 031-1734', 'aputnam@myspace.com@');
+Insert into dbo.Customer (UserName,  FName,  LName,  Address,  City,  ProvState,  PostalZip,  Country,  Phone,  Email) 
+Values ('Oliana', 'Oliana', 'Reichard', '749 Indian Fox Key', 'Pall Mall', 'NL', 'A2L-8Y6', 'Canada', '(709) 979-9830', 'o.reichard@yahoo.ca');
+Insert into dbo.Customer (UserName,  FName,  LName,  Address,  City,  ProvState,  PostalZip,  Country,  Phone,  Email) 
+Values ('Charissa', 'Charissa', 'Pride', '8616 High Cider Avenue', 'Crackertown', 'NJ', '07086-5352', 'United States', '(609) 104-1828', 'charissa-pride@infoseller.com');
+Insert into dbo.Customer (UserName,  FName,  LName,  Address,  City,  ProvState,  PostalZip,  Country,  Phone,  Email) 
+Values ('Guntur', 'Guntur', 'Javier', '5073 Cotton Zephyr Ledge', 'Heartstrong', 'ID', '83971-5632', 'United States', '(208) 382-5203', 'gunturj@toodles.com');
+Insert into dbo.Customer (UserName,  FName,  LName,  Address,  City,  ProvState,  PostalZip,  Country,  Phone,  Email) 
+Values ('Shantell', 'Shantell', 'Sheets', '5654 Emerald Shadow Rise', 'Tea', 'OK', '74499-8891', 'United States', '(405) 661-7966', 'ssheets@linux.com');
+Insert into dbo.Customer (UserName,  FName,  LName,  Address,  City,  ProvState,  PostalZip,  Country,  Phone,  Email) 
+Values ('Bhavesh', 'Bhavesh', 'Carbone', '7736 Lost Hickory Private', 'Togo', 'NJ', '08650-7014', 'United States', '(201) 513-8650', 'bcarbone@geocities.com');
+Insert into dbo.Customer (UserName,  FName,  LName,  Address,  City,  ProvState,  PostalZip,  Country,  Phone,  Email) 
+Values ('Dena', 'Dena', 'McGinn', '5260 Dewy Ramp', 'Witchwood', 'AK', '99918-7917', 'United States', '(907) 178-0388', 'denamcginn@freespace.com');
+Insert into dbo.Customer (UserName,  FName,  LName,  Address,  City,  ProvState,  PostalZip,  Country,  Phone,  Email) 
+Values ('Arika', 'Arika', 'Mccrary', '8188 Golden Farms', 'Swiss Bar', 'AB', 'T1F-0P1', 'Canada', '(780) 802-4472', 'amccrary@geocities.com');
+Insert into dbo.Customer (UserName,  FName,  LName,  Address,  City,  ProvState,  PostalZip,  Country,  Phone,  Email) 
+Values ('Darby', 'Darby', 'Saathoff', '6315 Iron Creek Inlet', 'Whiskey Bottom', 'AL', '36422-6749', 'United States', '(251) 102-1897', 'darbysaathoff@infoseller.com');
+Insert into dbo.Customer (UserName,  FName,  LName,  Address,  City,  ProvState,  PostalZip,  Country,  Phone,  Email) 
+Values ('Sharni', 'Sharni', 'Odowd', '9305 Wishing Timber Plaza', 'Turnkey', 'HI', '96845-7848', 'United States', '(808) 773-3482', 'sharniodowd@booksmart.com');
+Insert into dbo.Customer (UserName,  FName,  LName,  Address,  City,  ProvState,  PostalZip,  Country,  Phone,  Email) 
+Values ('Urania', 'Urania', 'Sultan', '7189 Tawny Trail', 'Frink', 'NY', '13645-5783', 'United States', '(716) 586-3877', 'uraniasultan@msn.com');
+Insert into dbo.Customer (UserName,  FName,  LName,  Address,  City,  ProvState,  PostalZip,  Country,  Phone,  Email) 
+Values ('Pavi', 'Pavi', 'Fleischmann', '2410 Green Bluff Concession', 'Gayhead', 'BC', 'V7T-2O5', 'Canada', '(778) 439-6488', 'pavi-fleischmann@yahoo.ca');
+Insert into dbo.Customer (UserName,  FName,  LName,  Address,  City,  ProvState,  PostalZip,  Country,  Phone,  Email) 
+Values ('Autolucus', 'Autolucus', 'Usher', '2473 Round Prairie Common', 'Polar', 'OK', '73945-6788', 'United States', '(539) 466-4667', 'ausher@webmail.com');
+Insert into dbo.Customer (UserName,  FName,  LName,  Address,  City,  ProvState,  PostalZip,  Country,  Phone,  Email) 
+Values ('Ultreia', 'Ultreia', 'Panos', '1768 Little Vale', 'Deer Lodge', 'FL', '32809-1961', 'United States', '(386) 576-6486', 'ultreiapanos@yoohoo.com');
+
+
+Username, Passwords
+
+Customers
+
+Rockley, Rockley$I
+Capers, Capers$N
+Arora, Arora$A
+Morten, Morten$A
+Brady, Brady$E
+Nelleke, Nelleke$T
+Atmajyoti, Atmajyoti$P
+Oliana, Oliana$R
+Charissa, Charissa$P
+Guntur, Guntur$J
+Shantell, Shantell$S
+Bhavesh, Bhavesh$C
+Dena, Dena$M
+Arika, Arika$M
+Darby, Darby$S
+Sharni, Sharni$O
+Urania, Urania$S
+Pavi, Pavi$F
+Autolucus, Autolucus$U
+Ultreia, Ultreia$P

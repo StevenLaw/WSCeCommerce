@@ -13,10 +13,14 @@ public partial class Customer
     /// <summary>
     /// Creates the transaction  based on the Cart property.
     /// </summary>
-    public void CreateTransaction()
+    /// <remarks>
+    /// We may wish to have the code to save the transaction into the database here.
+    /// </remarks>
+    public Transaction CreateTransaction()
     {
         Transaction t = new Transaction();
         foreach (CartItem item in Cart)
             t.AddOrderLine(item.Item, item.Quantity, item.Price, item.Message, item.PrintImage);
+        return t;
     }
 }
