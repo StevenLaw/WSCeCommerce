@@ -73,5 +73,8 @@ public partial class Testing : System.Web.UI.Page
         lblSubtotal.Text = String.Format("{0:C}", subtotal);
         lblTax.Text = String.Format("{0:C}", tax);
         lblTotal.Text = String.Format("{0:C}", total);
+
+        //Customer tst = new Customer();
+        //string x = tst.ProvinceState.Name;
     }
 }

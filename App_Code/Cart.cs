@@ -11,7 +11,7 @@ public struct CartItem
     public decimal Price { get; set; }
     public string Message { get; set; }
     public string PrintImage { get; set; }
-    public decimal Total { get { return Quantity * Price; } }
+    public decimal LineTotal { get { return Quantity * Price; } }
 }
 
 /// <summary>
@@ -86,7 +86,7 @@ public class Cart : Collection<CartItem>, IEnumerable
     {
         decimal subTotal = 0;
         foreach (CartItem item in this)
-            subTotal += item.Total;
+            subTotal += item.LineTotal;
         return subTotal;
     }
 

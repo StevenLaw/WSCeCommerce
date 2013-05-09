@@ -69,11 +69,11 @@
             <asp:TemplateField HeaderText="Total">
                 <ItemTemplate>
                     <asp:Label ID="Label6" runat="server" 
-                        Text='<%# Eval("Total", "{0:C}") %>'></asp:Label>
+                        Text='<%# Eval("LineTotal", "{0:C}") %>'></asp:Label>
                 </ItemTemplate>
                 <AlternatingItemTemplate>
                     <asp:Label ID="Label6" runat="server" 
-                        Text='<%# Eval("Total", "{0:C}") %>'></asp:Label>
+                        Text='<%# Eval("LineTotal", "{0:C}") %>'></asp:Label>
                 </AlternatingItemTemplate>
                 <EditItemTemplate>
                     <asp:TextBox ID="TextBox6" runat="server"></asp:TextBox>
@@ -207,8 +207,8 @@
                 SortExpression="Address" />
             <asp:BoundField DataField="City" HeaderText="City" ReadOnly="True" 
                 SortExpression="City" />
-            <asp:BoundField DataField="ProvinceState.Name" HeaderText="Province/State" 
-                SortExpression="ProvinceState.Name" />
+            <asp:BoundField DataField="ProvStateName" HeaderText="Province/State" 
+                SortExpression="ProvStateName" />
             <asp:BoundField DataField="PostalZip" HeaderText="Postal/Zip" ReadOnly="True" 
                 SortExpression="PostalZip" />
             <asp:BoundField DataField="Country" HeaderText="Country" ReadOnly="True" 
@@ -221,7 +221,7 @@
     </asp:GridView>
     <asp:LinqDataSource ID="ldsCustomers" runat="server" 
         ContextTypeName="WscDbDataContext" EntityTypeName="" 
-        Select="new (CustomerId, UserName, FName, LName, Address, City, ProvinceState, PostalZip, Country, Phone, Email, Transactions)" 
+        Select="new (CustomerId, UserName, FName, LName, Address, City, PostalZip, Country, Phone, Email, Transactions, ProvinceState.Name As ProvStateName)" 
         TableName="Customers">
     </asp:LinqDataSource>
 </asp:Content>
