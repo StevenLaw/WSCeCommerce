@@ -7,6 +7,7 @@
         Height="30px" Width="93px" DataKeyNames="PID" 
         DataSourceID="LinqDataSource1">
         <Columns>
+            <asp:ButtonField Text="Go to Product" />
             <asp:BoundField HeaderText="PID" DataField="PID" InsertVisible="False" 
                 ReadOnly="True" SortExpression="PID" Visible="False"></asp:BoundField>
             <asp:BoundField HeaderText="Type" DataField="Type" SortExpression="Type" 
@@ -24,7 +25,8 @@
                     <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
                 </EditItemTemplate>
                 <ItemTemplate>
-                    <asp:Image ID="Image1" runat="server" ImageUrl='<%# Eval("Image") %>' />
+                    <asp:Image ID="Image1" runat="server" Height="100px" 
+                        ImageUrl='<%# Eval("Image") %>' Width="100px" />
                 </ItemTemplate>
             </asp:TemplateField>
         </Columns>

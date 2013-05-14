@@ -24,10 +24,10 @@
             </asp:TemplateField>
             <asp:TemplateField HeaderText="Description">
                 <ItemTemplate>
-                    <asp:Label ID="Label2" runat="server" Text='<%# Bind("Item.Description") %>'></asp:Label>
+                    <asp:Label ID="Label3" runat="server" Text='<%# Bind("Item.Description") %>'></asp:Label>
                 </ItemTemplate>
                 <AlternatingItemTemplate>
-                    <asp:Label ID="Label2" runat="server" Text='<%# Bind("Item.Description") %>'></asp:Label>
+                    <asp:Label ID="Label4" runat="server" Text='<%# Bind("Item.Name") %>'></asp:Label>
                 </AlternatingItemTemplate>
                 <EditItemTemplate>
                     <asp:TextBox ID="TextBox2" runat="server"></asp:TextBox>
@@ -35,10 +35,10 @@
             </asp:TemplateField>
             <asp:TemplateField HeaderText="Message">
                 <ItemTemplate>
-                    <asp:Label ID="Label3" runat="server" Text='<%# Bind("Message") %>'></asp:Label>
+                    <asp:Label ID="Label5" runat="server" Text='<%# Bind("Item.Description") %>'></asp:Label>
                 </ItemTemplate>
                 <AlternatingItemTemplate>
-                    <asp:Label ID="Label3" runat="server" Text='<%# Bind("Message") %>'></asp:Label>
+                    <asp:Label ID="Label6" runat="server" Text='<%# Bind("Message") %>'></asp:Label>
                 </AlternatingItemTemplate>
                 <EditItemTemplate>
                     <asp:TextBox ID="TextBox3" runat="server"></asp:TextBox>
@@ -46,21 +46,21 @@
             </asp:TemplateField>
             <asp:TemplateField HeaderText="Quantity">
                 <ItemTemplate>
-                    <asp:Label ID="Label4" runat="server" Text='<%# Bind("Quantity") %>'></asp:Label>
+                    <asp:TextBox ID="TextBox4" runat="server" Text='<%# Bind("Quantity") %>'></asp:TextBox>
                 </ItemTemplate>
                 <AlternatingItemTemplate>
-                    <asp:Label ID="Label4" runat="server" Text='<%# Bind("Quantity") %>'></asp:Label>
+                    <asp:TextBox ID="TextBox5" runat="server" Text='<%# Bind("Quantity") %>'></asp:TextBox>
                 </AlternatingItemTemplate>
                 <EditItemTemplate>
-                    <asp:TextBox ID="TextBox4" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="TextBox6" runat="server" Text='<%# Bind("Quantity") %>'></asp:TextBox>
                 </EditItemTemplate>
             </asp:TemplateField>
             <asp:TemplateField HeaderText="Price">
                 <ItemTemplate>
-                    <asp:Label ID="Label5" runat="server" Text='<%# Eval("Price", "{0:C}") %>'></asp:Label>
+                    <asp:Label ID="Label7" runat="server" Text='<%# Bind("Item.Description") %>'></asp:Label>
                 </ItemTemplate>
                 <AlternatingItemTemplate>
-                    <asp:Label ID="Label5" runat="server" Text='<%# Eval("Price", "{0:C}") %>'></asp:Label>
+                    <asp:Label ID="Label8" runat="server" Text='<%# Eval("Price", "{0:C}") %>'></asp:Label>
                 </AlternatingItemTemplate>
                 <EditItemTemplate>
                     <asp:TextBox ID="TextBox5" runat="server"></asp:TextBox>
@@ -68,18 +68,20 @@
             </asp:TemplateField>
             <asp:TemplateField HeaderText="Total">
                 <ItemTemplate>
-                    <asp:Label ID="Label6" runat="server" 
+                    <asp:Label ID="Label9" runat="server" 
                         Text='<%# Eval("LineTotal", "{0:C}") %>'></asp:Label>
                 </ItemTemplate>
                 <AlternatingItemTemplate>
-                    <asp:Label ID="Label6" runat="server" 
+                    <asp:Label ID="Label10" runat="server" 
                         Text='<%# Eval("LineTotal", "{0:C}") %>'></asp:Label>
                 </AlternatingItemTemplate>
                 <EditItemTemplate>
                     <asp:TextBox ID="TextBox6" runat="server"></asp:TextBox>
                 </EditItemTemplate>
             </asp:TemplateField>
+            <asp:CommandField ButtonType="Button" ShowSelectButton="True" />
         </Columns>
+        <SelectedRowStyle BackColor="#CCCCCC" />
     </asp:GridView>
     <br />
     <table class="style1">
