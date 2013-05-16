@@ -3,11 +3,12 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
-    <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" 
-        Height="30px" Width="93px" DataKeyNames="PID" 
-        DataSourceID="LinqDataSource1">
+    <asp:GridView ID="gvCatalogue" runat="server" AutoGenerateColumns="False" 
+        Height="30px" Width="100%" DataKeyNames="PID" 
+        DataSourceID="LinqDataSource1" AllowPaging="True" 
+        onselectedindexchanged="gvCatalogue_SelectedIndexChanged" PageSize="5">
         <Columns>
-            <asp:ButtonField Text="Go to Product" />
+            <asp:CommandField SelectText="Go to Product" ShowSelectButton="True" />
             <asp:BoundField HeaderText="PID" DataField="PID" InsertVisible="False" 
                 ReadOnly="True" SortExpression="PID" Visible="False"></asp:BoundField>
             <asp:BoundField HeaderText="Type" DataField="Type" SortExpression="Type" 

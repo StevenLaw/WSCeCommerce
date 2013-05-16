@@ -11,4 +11,12 @@ public partial class Default2 : System.Web.UI.Page
     {
 
     }
+
+    protected void gvCatalogue_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        int index = gvCatalogue.SelectedRow.DataItemIndex;
+        ;
+        Response.Redirect("Item.aspx?id=" + id);
+
+    }
 }
