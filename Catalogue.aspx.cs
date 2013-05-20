@@ -15,7 +15,7 @@ public partial class Default2 : System.Web.UI.Page
     protected void gvCatalogue_SelectedIndexChanged(object sender, EventArgs e)
     {
         int index = gvCatalogue.SelectedRow.DataItemIndex;
-        ;
+        string id = 9+""; //Debug
         Response.Redirect("Item.aspx?id=" + id);
 
     }
