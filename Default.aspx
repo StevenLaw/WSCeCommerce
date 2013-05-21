@@ -4,7 +4,7 @@
 
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
-    <div style="background-color: Black; height: 1em;"><!debug bar to show size of content></div>
-<h1>Hello</h1>
+    
+<h1>Welcome to William Specialty Company</h1>
 </asp:Content>
 
