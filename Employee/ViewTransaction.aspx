@@ -20,7 +20,7 @@
             <asp:BoundField DataField="TransactionId" HeaderText="TransactionId" 
                 ReadOnly="True" SortExpression="TransactionId" />
             <asp:BoundField DataField="PriceAtSale" HeaderText="PriceAtSale" ReadOnly="True" 
-                SortExpression="PriceAtSale" />
+                SortExpression="PriceAtSale" DataFormatString="{0:C}" />
             <asp:BoundField DataField="Quantity" HeaderText="Quantity" 
                 SortExpression="Quantity" ReadOnly="True" />
             <asp:BoundField DataField="PID" HeaderText="PID" 
