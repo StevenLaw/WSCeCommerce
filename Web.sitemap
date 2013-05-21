@@ -13,6 +13,7 @@
     </siteMapNode>
     <siteMapNode url ="" title ="Employee" description ="Employee area">
       <siteMapNode url ="" title ="View Transactions" description ="View the recorded transactions" />
+      <siteMapNode url ="" title ="Manage Inventory" description ="Manage Inventory" />
     </siteMapNode>
   </siteMapNode>
 </siteMap>

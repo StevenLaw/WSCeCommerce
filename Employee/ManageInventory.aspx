@@ -1,33 +1,27 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="ViewTransaction.aspx.cs" Inherits="Employee_ViewTransaction" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="ManageInventory.aspx.cs" Inherits="Employee_ManageInventory" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
-
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
     <asp:LinqDataSource ID="LinqDataSource1" runat="server" 
-        ContextTypeName="WscDbDataContext" EnableDelete="True" EnableInsert="True" 
-        EnableUpdate="True" EntityTypeName="" TableName="OrderLines">
+        ContextTypeName="WscDbDataContext" EntityTypeName="" TableName="Products">
     </asp:LinqDataSource>
     <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" 
         BackColor="White" BorderColor="#DEDFDE" BorderStyle="None" BorderWidth="1px" 
-        CellPadding="4" DataKeyNames="TransactionId,PID" DataSourceID="LinqDataSource1" 
+        CellPadding="4" DataKeyNames="PID" DataSourceID="LinqDataSource1" 
         ForeColor="Black" GridLines="Vertical">
         <AlternatingRowStyle BackColor="White" />
         <Columns>
-            <asp:BoundField DataField="TransactionId" HeaderText="TransactionId" 
-                ReadOnly="True" SortExpression="TransactionId" />
-            <asp:BoundField DataField="PID" HeaderText="PID" ReadOnly="True" 
-                SortExpression="PID" />
+            <asp:BoundField DataField="PID" HeaderText="PID" InsertVisible="False" 
+                ReadOnly="True" SortExpression="PID" />
+            <asp:BoundField DataField="Type" HeaderText="Type" SortExpression="Type" />
+            <asp:BoundField DataField="Name" HeaderText="Name" SortExpression="Name" />
             <asp:BoundField DataField="Quantity" HeaderText="Quantity" 
                 SortExpression="Quantity" />
-            <asp:BoundField DataField="PriceAtSale" HeaderText="PriceAtSale" 
-                SortExpression="PriceAtSale" />
-            <asp:BoundField DataField="Completed" HeaderText="Completed" 
-                SortExpression="Completed" />
-            <asp:BoundField DataField="Message" HeaderText="Message" 
-                SortExpression="Message" />
-            <asp:BoundField DataField="PrintImage" HeaderText="PrintImage" 
-                SortExpression="PrintImage" />
+            <asp:BoundField DataField="Price" HeaderText="Price" SortExpression="Price" />
+            <asp:BoundField DataField="Description" HeaderText="Description" 
+                SortExpression="Description" />
+            <asp:BoundField DataField="Image" HeaderText="Image" SortExpression="Image" />
         </Columns>
         <FooterStyle BackColor="#CCCC99" />
         <HeaderStyle BackColor="#6B696B" Font-Bold="True" ForeColor="White" />
