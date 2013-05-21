@@ -4,14 +4,16 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
     <asp:LinqDataSource ID="LinqDataSource1" runat="server" 
-        ContextTypeName="WscDbDataContext" EntityTypeName="" TableName="Products">
+        ContextTypeName="WscDbDataContext" EntityTypeName="" TableName="Products" 
+        EnableUpdate="True">
     </asp:LinqDataSource>
     <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" 
         BackColor="White" BorderColor="#DEDFDE" BorderStyle="None" BorderWidth="1px" 
         CellPadding="4" DataKeyNames="PID" DataSourceID="LinqDataSource1" 
-        ForeColor="Black" GridLines="Vertical">
+        ForeColor="Black" GridLines="Vertical" AllowPaging="True">
         <AlternatingRowStyle BackColor="White" />
         <Columns>
+            <asp:CommandField ButtonType="Button" ShowEditButton="True" />
             <asp:BoundField DataField="PID" HeaderText="PID" InsertVisible="False" 
                 ReadOnly="True" SortExpression="PID" />
             <asp:BoundField DataField="Type" HeaderText="Type" SortExpression="Type" />

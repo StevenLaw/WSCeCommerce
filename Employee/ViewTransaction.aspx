@@ -5,29 +5,30 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
     <asp:LinqDataSource ID="LinqDataSource1" runat="server" 
-        ContextTypeName="WscDbDataContext" EnableDelete="True" EnableInsert="True" 
-        EnableUpdate="True" EntityTypeName="" TableName="OrderLines">
+        ContextTypeName="WscDbDataContext" EntityTypeName="" 
+        TableName="OrderLines" 
+        
+        Select="new (TransactionId, PriceAtSale, Quantity, PID, Completed, Message, Product, Transaction)" 
+        EnableDelete="True" EnableInsert="True" EnableUpdate="True">
     </asp:LinqDataSource>
     <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" 
         BackColor="White" BorderColor="#DEDFDE" BorderStyle="None" BorderWidth="1px" 
-        CellPadding="4" DataKeyNames="TransactionId,PID" DataSourceID="LinqDataSource1" 
-        ForeColor="Black" GridLines="Vertical">
+        CellPadding="4" DataSourceID="LinqDataSource1" 
+        ForeColor="Black" GridLines="Vertical" AllowPaging="True">
         <AlternatingRowStyle BackColor="White" />
         <Columns>
             <asp:BoundField DataField="TransactionId" HeaderText="TransactionId" 
                 ReadOnly="True" SortExpression="TransactionId" />
-            <asp:BoundField DataField="PID" HeaderText="PID" ReadOnly="True" 
-                SortExpression="PID" />
-            <asp:BoundField DataField="Quantity" HeaderText="Quantity" 
-                SortExpression="Quantity" />
-            <asp:BoundField DataField="PriceAtSale" HeaderText="PriceAtSale" 
+            <asp:BoundField DataField="PriceAtSale" HeaderText="PriceAtSale" ReadOnly="True" 
                 SortExpression="PriceAtSale" />
+            <asp:BoundField DataField="Quantity" HeaderText="Quantity" 
+                SortExpression="Quantity" ReadOnly="True" />
+            <asp:BoundField DataField="PID" HeaderText="PID" 
+                SortExpression="PID" ReadOnly="True" />
             <asp:BoundField DataField="Completed" HeaderText="Completed" 
-                SortExpression="Completed" />
-            <asp:BoundField DataField="Message" HeaderText="Message" 
+                SortExpression="Completed" ReadOnly="True" />
+            <asp:BoundField DataField="Message" HeaderText="Message" ReadOnly="True" 
                 SortExpression="Message" />
-            <asp:BoundField DataField="PrintImage" HeaderText="PrintImage" 
-                SortExpression="PrintImage" />
         </Columns>
         <FooterStyle BackColor="#CCCC99" />
         <HeaderStyle BackColor="#6B696B" Font-Bold="True" ForeColor="White" />
