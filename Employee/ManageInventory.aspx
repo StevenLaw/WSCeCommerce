@@ -23,7 +23,15 @@
             <asp:BoundField DataField="Price" HeaderText="Price" SortExpression="Price" />
             <asp:BoundField DataField="Description" HeaderText="Description" 
                 SortExpression="Description" />
-            <asp:BoundField DataField="Image" HeaderText="Image" SortExpression="Image" />
+            <asp:TemplateField>
+                <EditItemTemplate>
+                    <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
+                </EditItemTemplate>
+                <ItemTemplate>
+                    <asp:Image ID="Image1" runat="server" Height="100px" 
+                        ImageUrl='<%# Eval("Image") %>' Width="100px" />
+                </ItemTemplate>
+            </asp:TemplateField>
         </Columns>
         <FooterStyle BackColor="#CCCC99" />
         <HeaderStyle BackColor="#6B696B" Font-Bold="True" ForeColor="White" />
