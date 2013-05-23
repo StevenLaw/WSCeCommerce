@@ -14,19 +14,17 @@
         <AlternatingRowStyle BackColor="White" />
         <Columns>
             <asp:CommandField ButtonType="Button" ShowEditButton="True" />
-            <asp:BoundField DataField="PID" HeaderText="PID" InsertVisible="False" 
+            <asp:BoundField DataField="PID"  HeaderText="PID" InsertVisible="False" 
                 ReadOnly="True" SortExpression="PID" />
-            <asp:BoundField DataField="Type" HeaderText="Type" SortExpression="Type" />
-            <asp:BoundField DataField="Name" HeaderText="Name" SortExpression="Name" />
+            <asp:BoundField DataField="Type" readonly="true" HeaderText="Type" SortExpression="Type" />
+            <asp:BoundField DataField="Name" readonly="true" HeaderText="Name" SortExpression="Name" />
             <asp:BoundField DataField="Quantity" HeaderText="Quantity" 
                 SortExpression="Quantity" />
-            <asp:BoundField DataField="Price" HeaderText="Price" SortExpression="Price" />
-            <asp:BoundField DataField="Description" HeaderText="Description" 
+            <asp:BoundField DataField="Price" readonly="true" HeaderText="Price" SortExpression="Price" 
+                DataFormatString="{0:C}" />
+            <asp:BoundField DataField="Description" readonly="true" HeaderText="Description" 
                 SortExpression="Description" />
             <asp:TemplateField>
-                <EditItemTemplate>
-                    <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
-                </EditItemTemplate>
                 <ItemTemplate>
                     <asp:Image ID="Image1" runat="server" Height="100px" 
                         ImageUrl='<%# Eval("Image") %>' Width="100px" />
