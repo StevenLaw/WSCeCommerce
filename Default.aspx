@@ -5,6 +5,11 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
     
-<h1>Welcome to William Specialty Company</h1>
+    <h1>Welcome to Williams Specialty Company</h1>
+    <br />
+    Williams Specialty Company is a private business that provides printing and 
+    engraving services on different products. Customers are allowed customize their 
+    products as desired. Trophies and plaques are available for engraving, and mugs 
+    and shirts are available for printing.
 </asp:Content>
 

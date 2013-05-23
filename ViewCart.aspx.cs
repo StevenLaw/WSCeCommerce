@@ -44,6 +44,10 @@ public partial class ViewCart : System.Web.UI.Page
         {
             cart = (List<GridViewItem>)Session["Cart"];
         }
+
+        if (cart.Count == 0)
+            Response.Redirect("~/EmptyCart.aspx");
+
     }
 
     protected void gvCart_RowDeleting(object sender, GridViewDeleteEventArgs e)
