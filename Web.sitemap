@@ -1,19 +1,23 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <siteMap xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0" >
   <siteMapNode url="Default.aspx" title="Home"  description="The home page">
-    <siteMapNode url="" title="Catalogue" description="The catelogue">
-      <siteMapNode url ="" title="Printable" description ="Printable items">
-        <siteMapNode url ="" title ="Shirts" description ="Shirts" />
-        <siteMapNode url ="" title ="Mugs" description ="Mugs" />
+    <siteMapNode url="Catalogue.aspx" title="Catalogue" description="The catelogue">
+      <siteMapNode url ="Catalogue.aspx?cat=P" title="Printable" description ="Printable items">
+        <siteMapNode url ="Catalogue.aspx?cat=3" title ="Shirts" description ="Shirts" />
+        <siteMapNode url ="Catalogue.aspx?cat=4" title ="Mugs" description ="Mugs" />
       </siteMapNode>
-      <siteMapNode url ="" title ="Engravable" description ="Engravable items">
-        <siteMapNode url ="" title ="Trophies" description="Trophies" />
-        <siteMapNode url ="" title ="Plaques" description ="Plaques" />
+      <siteMapNode url ="Catalogue.aspx?cat=E" title ="Engravable" description ="Engravable items">
+        <siteMapNode url ="Catalogue.aspx?cat=1" title ="Trophies" description="Trophies" />
+        <siteMapNode url ="Catalogue.aspx?cat=2" title ="Plaques" description ="Plaques" />
       </siteMapNode>
     </siteMapNode>
     <siteMapNode url ="" title ="Employee" description ="Employee area">
-      <siteMapNode url ="" title ="View Transactions" description ="View the recorded transactions" />
-      <siteMapNode url ="" title ="Manage Inventory" description ="Manage Inventory" />
+      <siteMapNode url ="Employee/ViewTransaction.aspx" title ="View Transactions" description ="View the recorded transactions" />
+      <siteMapNode url ="Employee/ManageInventory.aspx" title ="Manage Inventory" description ="Manage inventory numbers" />
+    </siteMapNode>
+    <siteMapNode url ="" title ="Administration" description ="Administration area">
+      <siteMapNode url ="Admin/ManageEmployees.aspx" title ="Manage Employees" description ="Manage the employee's statuses" />
+      <siteMapNode url ="Admin/ManageProducts.aspx" title ="Manage Products" description ="Manage the products" />
     </siteMapNode>
   </siteMapNode>
 </siteMap>
