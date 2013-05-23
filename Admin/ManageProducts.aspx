@@ -4,39 +4,56 @@
     <style type="text/css">
         .style1
         {
-            width: 425px;
+            width: 625px;
+            vertical-align: top;
         }
         .style2
         {
             width: 197px;
+            vertical-align: top;
         }
-        .style3
-        {
-            width: 197px;
-            height: 23px;
-        }
-        .style4
-        {
-            height: 23px;
-        }
+        
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
     <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" 
-        DataKeyNames="PID" DataSourceID="ldsProducts">
+        DataKeyNames="PID" DataSourceID="ldsProducts" AllowPaging="True">
         <Columns>
             <asp:BoundField DataField="PID" HeaderText="PID" InsertVisible="False" 
                 ReadOnly="True" SortExpression="PID" />
-            <asp:BoundField DataField="Type" HeaderText="Type" SortExpression="Type" />
+            <asp:TemplateField HeaderText="Type" SortExpression="Type">
+                <ItemTemplate>
+                    <asp:Label ID="Label3" runat="server" Text='<%# Bind("Type") %>'></asp:Label>
+                </ItemTemplate>
+                <EditItemTemplate>
+                    <asp:TextBox ID="TextBox4" runat="server" Text='<%# Bind("Type") %>' 
+                        Width="26px"></asp:TextBox>
+                </EditItemTemplate>
+            </asp:TemplateField>
             <asp:BoundField DataField="Name" HeaderText="Name" SortExpression="Name" />
-            <asp:BoundField DataField="Quantity" HeaderText="Quantity" 
-                SortExpression="Quantity" />
-            <asp:BoundField DataField="Price" HeaderText="Price" SortExpression="Price" />
+            <asp:TemplateField HeaderText="Quantity" SortExpression="Quantity">
+                <ItemTemplate>
+                    <asp:Label ID="Label1" runat="server" Text='<%# Bind("Quantity") %>'></asp:Label>
+                </ItemTemplate>
+                <EditItemTemplate>
+                    <asp:TextBox ID="TextBox2" runat="server" Text='<%# Bind("Quantity") %>' 
+                        Width="36px"></asp:TextBox>
+                </EditItemTemplate>
+            </asp:TemplateField>
+            <asp:TemplateField HeaderText="Price" SortExpression="Price">
+                <ItemTemplate>
+                    <asp:Label ID="Label2" runat="server" Text='<%# Bind("Price") %>'></asp:Label>
+                </ItemTemplate>
+                <EditItemTemplate>
+                    <asp:TextBox ID="TextBox3" runat="server" Text='<%# Bind("Price") %>' 
+                        Width="58px"></asp:TextBox>
+                </EditItemTemplate>
+            </asp:TemplateField>
             <asp:BoundField DataField="Description" HeaderText="Description" 
                 SortExpression="Description" />
             <asp:BoundField DataField="Image" HeaderText="ImageUrl" 
                 SortExpression="Image" />
-            <asp:TemplateField HeaderText="Image">
+            <asp:TemplateField HeaderText="Image" Visible="False">
                 <ItemTemplate>
                     <asp:Image ID="Image1" runat="server" Height="100px" 
                         ImageUrl='<%# Eval("Image") %>' />
@@ -45,18 +62,31 @@
                     <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
                 </EditItemTemplate>
             </asp:TemplateField>
-            <asp:CommandField ShowEditButton="True" />
-            <asp:CommandField ShowDeleteButton="True" />
+            <asp:TemplateField ShowHeader="False">
+                <ItemTemplate>
+                    <asp:Button ID="Button1" runat="server" CausesValidation="False" 
+                        CommandName="Edit" Text="Edit" />
+                </ItemTemplate>
+                <EditItemTemplate>
+                    <asp:Button ID="Button1" runat="server" CausesValidation="True" 
+                        CommandName="Update" Text="Update" />
+                    &nbsp;<br />
+                    <asp:Button ID="Button2" runat="server" CausesValidation="False" 
+                        CommandName="Cancel" Text="Cancel" />
+                </EditItemTemplate>
+            </asp:TemplateField>
+            <asp:CommandField ShowDeleteButton="True" ButtonType="Button" />
         </Columns>
     </asp:GridView>
     <asp:LinqDataSource ID="ldsProducts" runat="server" 
-        ContextTypeName="WscDbDataContext" EntityTypeName="" TableName="Products">
+        ContextTypeName="WscDbDataContext" EntityTypeName="" TableName="Products" 
+        EnableDelete="True" EnableInsert="True" EnableUpdate="True">
     </asp:LinqDataSource>
-    New Product:<br />
+    Insert New Product:<br />
     <table class="style1">
         <tr>
             <td class="style2">
-                Product Type:</td>
+                Product Type</td>
             <td>
                 <asp:DropDownList ID="ddlType" runat="server" DataSourceID="ldsProductTypes" 
                     DataTextField="Name" DataValueField="PTId">
@@ -68,24 +98,27 @@
             </td>
         </tr>
         <tr>
-            <td class="style3">
+            <td class="style2">
                 Name</td>
-            <td class="style4">
+            <td >
                 <asp:TextBox ID="txtName" runat="server"></asp:TextBox>
                 <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" 
-                    ControlToValidate="txtName" ErrorMessage="&lt;br /&gt;Required Field"></asp:RequiredFieldValidator>
+                    ControlToValidate="txtName" ErrorMessage="*" 
+                    Display="Dynamic" ValidationGroup="Add"></asp:RequiredFieldValidator>
             </td>
         </tr>
         <tr>
             <td class="style2">
-                Initial Quantity:</td>
+                Initial Quantity</td>
             <td>
                 <asp:TextBox ID="txtQty" runat="server"></asp:TextBox>
-                <asp:CompareValidator ID="CompareValidator1" runat="server" 
-                    ControlToValidate="txtQty" ErrorMessage="&lt;br /&gt;Must be a number" 
-                    Operator="DataTypeCheck" Type="Integer"></asp:CompareValidator>
                 <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" 
-                    ControlToValidate="txtQty" ErrorMessage="&lt;br /&gt;Required Field"></asp:RequiredFieldValidator>
+                    ControlToValidate="txtQty" ErrorMessage="*" 
+                    Display="Dynamic" ValidationGroup="Add"></asp:RequiredFieldValidator>
+                <asp:CompareValidator ID="CompareValidator1" runat="server" 
+                    ControlToValidate="txtQty" ErrorMessage="*Must be a number" 
+                    Operator="DataTypeCheck" Type="Integer" Display="Dynamic" 
+                    ValidationGroup="Add"></asp:CompareValidator>
             </td>
         </tr>
         <tr>
@@ -93,11 +126,13 @@
                 Price</td>
             <td>
                 <asp:TextBox ID="txtPrice" runat="server"></asp:TextBox>
-                <asp:CompareValidator ID="CompareValidator2" runat="server" 
-                    ControlToValidate="txtPrice" ErrorMessage="&lt;br /&gt;CompareValidator" 
-                    Operator="DataTypeCheck" Type="Currency"></asp:CompareValidator>
                 <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" 
-                    ControlToValidate="txtPrice" ErrorMessage="&lt;br /&gt;Required Field"></asp:RequiredFieldValidator>
+                    ControlToValidate="txtPrice" ErrorMessage="*" 
+                    Display="Dynamic" ValidationGroup="Add"></asp:RequiredFieldValidator>
+                <asp:CompareValidator ID="CompareValidator2" runat="server" 
+                    ControlToValidate="txtPrice" ErrorMessage="*Must be a number" 
+                    Operator="DataTypeCheck" Type="Currency" Display="Dynamic" 
+                    ValidationGroup="Add"></asp:CompareValidator>
             </td>
         </tr>
         <tr>
@@ -110,14 +145,15 @@
         </tr>
         <tr>
             <td class="style2">
-                Image</td>
+                Image Upload</td>
             <td>
                 <asp:FileUpload ID="fileImage" runat="server" />
             </td>
         </tr>
     </table>
     <br />
-    <asp:Button ID="btnAdd" runat="server" Text="Add Item" />
+    <asp:Button ID="btnAdd" runat="server" Text="Add Item" onclick="btnAdd_Click" 
+        ValidationGroup="Add" />
     <br />
 </asp:Content>
 

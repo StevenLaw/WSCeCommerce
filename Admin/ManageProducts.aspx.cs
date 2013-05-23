@@ -11,4 +11,8 @@ public partial class Admin_ManageProducts : System.Web.UI.Page
     {
 
     }
+    protected void btnAdd_Click(object sender, EventArgs e)
+    {
+
+    }
 }
