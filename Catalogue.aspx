@@ -1,6 +1,15 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="Catalogue.aspx.cs" Inherits="Default2" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
+    <title id="titleElement" runat="server"></title>
+    
+    <style type="text/css">
+        .hidden
+        {
+            visibility: hidden;
+        }
+    </style>
+    
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
     <asp:GridView ID="gvCatalogue" runat="server" AutoGenerateColumns="False" 
@@ -10,7 +19,8 @@
         <Columns>
             <asp:CommandField SelectText="Go to Product" ShowSelectButton="True" />
             <asp:BoundField HeaderText="PID" DataField="PID" InsertVisible="False" 
-                ReadOnly="True" SortExpression="PID" Visible="False"></asp:BoundField>
+                ReadOnly="True" SortExpression="PID" Visible="False">
+            </asp:BoundField>
             <asp:BoundField HeaderText="Type" DataField="Type" SortExpression="Type" 
                 Visible="False"></asp:BoundField>
             <asp:BoundField HeaderText="Name" DataField="Name" SortExpression="Name"></asp:BoundField>
