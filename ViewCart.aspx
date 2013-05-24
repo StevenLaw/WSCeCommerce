@@ -16,11 +16,14 @@
             <asp:BoundField DataField="Item" HeaderText="Item" />
             <asp:TemplateField HeaderText="Quantity">
                 <ItemTemplate>
-                    <asp:TextBox ID="TextBox1" runat="server" Text='<%# Eval("Quantity") %>' 
+                    <asp:TextBox ID="txtQuantity" runat="server" Text='<%# Eval("Quantity") %>' 
                         Height="22px" Width="67px"></asp:TextBox>
                 </ItemTemplate>
             </asp:TemplateField>
             <asp:BoundField DataField="Price" DataFormatString="{0:c}" HeaderText="Price" />
+            <asp:BoundField DataField="Message" HeaderText="Message" />
+            <asp:BoundField DataField="LineTotal" DataFormatString="{0:c}" 
+                HeaderText="Line Total" />
             <asp:CommandField ButtonType="Button" ShowDeleteButton="True" />
         </Columns>
     </asp:GridView>
@@ -35,7 +38,8 @@
     <br />
     <asp:Label ID="lblError" runat="server" ForeColor="Red"></asp:Label>
     <br />
-    <asp:Button ID="btnUpdate" runat="server" Text="Update Cart" />
+    <asp:Button ID="btnUpdate" runat="server" Text="Update Cart" 
+        onclick="btnUpdate_Click" />
     <asp:Button ID="btnCheckout" runat="server" Text="Checkout" />
 </asp:Content>
 

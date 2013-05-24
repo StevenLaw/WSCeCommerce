@@ -7,6 +7,17 @@ using System.Web.UI.WebControls;
 
 public partial class Default2 : System.Web.UI.Page
 {
+    /// <summary>
+    /// Handles the Load event of the Page control.
+    /// </summary>
+    /// <remarks>
+    /// Determines the category to be put into the title of the page from the cat GET variable from the 
+    /// URL and retrieves the data source to display that category.  If there is no cat variable then it 
+    /// sets the title to simply Catalogue and leaves the data source as the default
+    /// </remarks>
+    /// <param name="sender">The source of the event.</param>
+    /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+    /// <exception cref="Exception">Invalid category</exception>
     protected void Page_Load(object sender, EventArgs e)
     {
         if (Request.QueryString["cat"] != null)
@@ -52,8 +63,15 @@ public partial class Default2 : System.Web.UI.Page
             gvCatalogue.DataSourceID = null;
             gvCatalogue.DataBind();
         }
+        else
+            titleElement.InnerText = "Catalogue";
     }
 
+    /// <summary>
+    /// Handles the SelectedIndexChanged event of the gvCatalogue control.
+    /// </summary>
+    /// <param name="sender">The source of the event.</param>
+    /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
     protected void gvCatalogue_SelectedIndexChanged(object sender, EventArgs e)
     {
         int index = gvCatalogue.SelectedIndex;
