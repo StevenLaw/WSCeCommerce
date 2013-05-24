@@ -27,7 +27,7 @@
                     <asp:Label ID="Label3" runat="server" Text='<%# Bind("Item.Description") %>'></asp:Label>
                 </ItemTemplate>
                 <AlternatingItemTemplate>
-                    <asp:Label ID="Label4" runat="server" Text='<%# Bind("Item.Name") %>'></asp:Label>
+                    <asp:Label ID="Label4" runat="server" Text='<%# Bind("Item.Description") %>'></asp:Label>
                 </AlternatingItemTemplate>
                 <EditItemTemplate>
                     <asp:TextBox ID="TextBox2" runat="server"></asp:TextBox>
@@ -35,7 +35,7 @@
             </asp:TemplateField>
             <asp:TemplateField HeaderText="Message">
                 <ItemTemplate>
-                    <asp:Label ID="Label5" runat="server" Text='<%# Bind("Item.Description") %>'></asp:Label>
+                    <asp:Label ID="Label5" runat="server" Text='<%# Bind("Message") %>'></asp:Label>
                 </ItemTemplate>
                 <AlternatingItemTemplate>
                     <asp:Label ID="Label6" runat="server" Text='<%# Bind("Message") %>'></asp:Label>
@@ -57,7 +57,7 @@
             </asp:TemplateField>
             <asp:TemplateField HeaderText="Price">
                 <ItemTemplate>
-                    <asp:Label ID="Label7" runat="server" Text='<%# Bind("Item.Description") %>'></asp:Label>
+                    <asp:Label ID="Label7" runat="server" Text='<%# Eval("Price", "{0:C}") %>'></asp:Label>
                 </ItemTemplate>
                 <AlternatingItemTemplate>
                     <asp:Label ID="Label8" runat="server" Text='<%# Eval("Price", "{0:C}") %>'></asp:Label>
