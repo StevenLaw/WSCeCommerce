@@ -31,10 +31,10 @@
             </asp:TemplateField>
             <asp:TemplateField HeaderText="PriceAtSale" SortExpression="PriceAtSale">
                 <EditItemTemplate>
-                    <asp:Label ID="Label2" runat="server" Text='<%# Bind("PriceAtSale") %>'></asp:Label>
+                    <asp:Label ID="Label2" runat="server" Text='<%# Bind("PriceAtSale", "{0:C}") %>'></asp:Label>
                 </EditItemTemplate>
                 <ItemTemplate>
-                    <asp:Label ID="Label2" runat="server" Text='<%# Bind("PriceAtSale") %>'></asp:Label>
+                    <asp:Label ID="Label2" runat="server" Text='<%# Bind("PriceAtSale", "{0:C}") %>'></asp:Label>
                 </ItemTemplate>
             </asp:TemplateField>
             <asp:CheckBoxField DataField="Completed" HeaderText="Completed" 

@@ -59,10 +59,10 @@
             </asp:TemplateField>
             <asp:TemplateField HeaderText="Price" SortExpression="Price">
                 <ItemTemplate>
-                    <asp:Label ID="Label2" runat="server" Text='<%# Bind("Price") %>'></asp:Label>
+                    <asp:Label ID="Label2" runat="server" Text='<%# Bind("Price", "{0:C}") %>'></asp:Label>
                 </ItemTemplate>
                 <EditItemTemplate>
-                    <asp:TextBox ID="TextBox3" runat="server" Text='<%# Bind("Price") %>' 
+                    <asp:TextBox ID="TextBox3" runat="server" Text='<%# Bind("Price", "{0:C}") %>' 
                         Width="58px"></asp:TextBox>
                     <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" 
                         ControlToValidate="TextBox3" Display="Dynamic" ErrorMessage="*"></asp:RequiredFieldValidator>
