@@ -70,7 +70,10 @@ public class Cart : Collection<CartItem>, IEnumerable
         int i;
         for (i = 0; i < Count; i++)
             if (this[i].Item == prod)
+            {
                 tmp = this[i];
+                break;
+            }
         if (tmp.Item != null)
         {
             tmp.Quantity = qty;

@@ -14,7 +14,7 @@
             <h1>Williams Specialty Company</h1>
             <div class="breadcrumbs" id="Home">
                 <asp:LinkButton ID="lnkHome" runat="server" PostBackUrl="~/Default.aspx">Home</asp:LinkButton>
-                <asp:LinkButton ID="lnkCart" runat="server" PostBackUrl="~/ViewCart.aspx">View Cart (5)</asp:LinkButton>
+                <asp:LinkButton ID="lnkCart" runat="server" PostBackUrl="~/ViewCart.aspx">View Cart</asp:LinkButton>
             </div>
             <div class="loginView">
                 <asp:LoginView ID="LoginView1" runat="server">

@@ -18,8 +18,8 @@
     {
         Exception ex = Server.GetLastError().InnerException;
         Session["Exception"] = ex;
-        Response.Redirect("~/GeneralErrors.aspx");
-
+        Server.ClearError();
+        Response.Redirect("~/GeneralErrors.aspx", false);
     }
 
     void Session_Start(object sender, EventArgs e) 
