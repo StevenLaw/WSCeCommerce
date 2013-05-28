@@ -16,14 +16,52 @@
             <asp:CommandField ButtonType="Button" ShowEditButton="True" />
             <asp:BoundField DataField="PID"  HeaderText="PID" InsertVisible="False" 
                 ReadOnly="True" SortExpression="PID" />
-            <asp:BoundField DataField="Type" readonly="true" HeaderText="Type" SortExpression="Type" />
-            <asp:BoundField DataField="Name" readonly="true" HeaderText="Name" SortExpression="Name" />
-            <asp:BoundField DataField="Quantity" HeaderText="Quantity" 
-                SortExpression="Quantity" />
-            <asp:BoundField DataField="Price" readonly="true" HeaderText="Price" SortExpression="Price" 
-                DataFormatString="{0:C}" />
-            <asp:BoundField DataField="Description" readonly="true" HeaderText="Description" 
-                SortExpression="Description" />
+            <asp:TemplateField HeaderText="Type" SortExpression="Type">
+                <EditItemTemplate>
+                    <asp:Label ID="Label1" runat="server" Text='<%# Eval("Type") %>'></asp:Label>
+                </EditItemTemplate>
+                <ItemTemplate>
+                    <asp:Label ID="Label1" runat="server" Text='<%# Bind("Type") %>'></asp:Label>
+                </ItemTemplate>
+            </asp:TemplateField>
+            <asp:TemplateField HeaderText="Name" SortExpression="Name">
+                <EditItemTemplate>
+                    <asp:Label ID="Label2" runat="server" Text='<%# Eval("Name") %>'></asp:Label>
+                </EditItemTemplate>
+                <ItemTemplate>
+                    <asp:Label ID="Label2" runat="server" Text='<%# Bind("Name") %>'></asp:Label>
+                </ItemTemplate>
+            </asp:TemplateField>
+            <asp:TemplateField HeaderText="Quantity" SortExpression="Quantity">
+                <EditItemTemplate>
+                    <asp:TextBox ID="TextBox1" runat="server" Text='<%# Bind("Quantity") %>'></asp:TextBox>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" 
+                        ControlToValidate="TextBox1" Display="Dynamic" ErrorMessage="*"></asp:RequiredFieldValidator>
+                    <br />
+                    <asp:CompareValidator ID="CompareValidator1" runat="server" 
+                        ControlToValidate="TextBox1" Display="Dynamic" ErrorMessage="*Must be a number" 
+                        Operator="DataTypeCheck" Type="Integer"></asp:CompareValidator>
+                </EditItemTemplate>
+                <ItemTemplate>
+                    <asp:Label ID="Label3" runat="server" Text='<%# Bind("Quantity") %>'></asp:Label>
+                </ItemTemplate>
+            </asp:TemplateField>
+            <asp:TemplateField HeaderText="Price" SortExpression="Price">
+                <EditItemTemplate>
+                    <asp:Label ID="Label3" runat="server" Text='<%# Eval("Price", "{0:C}") %>'></asp:Label>
+                </EditItemTemplate>
+                <ItemTemplate>
+                    <asp:Label ID="Label4" runat="server" Text='<%# Bind("Price", "{0:C}") %>'></asp:Label>
+                </ItemTemplate>
+            </asp:TemplateField>
+            <asp:TemplateField HeaderText="Description" SortExpression="Description">
+                <EditItemTemplate>
+                    <asp:Label ID="Label4" runat="server" Text='<%# Eval("Description") %>'></asp:Label>
+                </EditItemTemplate>
+                <ItemTemplate>
+                    <asp:Label ID="Label5" runat="server" Text='<%# Bind("Description") %>'></asp:Label>
+                </ItemTemplate>
+            </asp:TemplateField>
             <asp:TemplateField>
                 <ItemTemplate>
                     <asp:Image ID="Image1" runat="server" Height="100px" 
