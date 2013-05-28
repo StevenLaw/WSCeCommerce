@@ -81,4 +81,10 @@ public partial class ViewCart : System.Web.UI.Page
         gvCart.DataBind();
         SetTotals();
     }
+
+    protected void btnCheckout_Click(object sender, EventArgs e)
+    {
+        Session["CurrentCart"] = cart;
+        Response.Redirect("~/Customer/Checkout.aspx", false);
+    }
 }

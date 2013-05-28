@@ -7,20 +7,24 @@ using System.Web.UI.WebControls;
 
 public partial class Customer_pgCheckout : System.Web.UI.Page
 {
-    private List<GridViewItem> cart;
+    private Cart cart;
 
-    private struct GridViewItem
+    private struct CheckoutItem
     {
         public string Item { get; set; }
-        public int Quantity { get; set; }
-        public double Price { get; set; }
+        public string Message { get; set; }
+        public string Quantity { get; set; }
+        public string Price { get; set; }
+        public string Total { get; set; }
 
-        public GridViewItem(string item, int quantity, double price)
+        public CheckoutItem(string item, string message, string quantity, string price, string total)
             : this()
         {
             Item = item;
+            Message = message;
             Quantity = quantity;
             Price = price;
+            Total = total;
         }
     }
 
@@ -28,31 +32,47 @@ public partial class Customer_pgCheckout : System.Web.UI.Page
     {
         if (!IsPostBack)
         {
-            cart = new List<GridViewItem>();
-            cart.Add(new GridViewItem("Number 1", 1, 4.0));
-            cart.Add(new GridViewItem("Number 2", 2, 4.0));
-            cart.Add(new GridViewItem("Number 3", 3, 4.0));
-            cart.Add(new GridViewItem("Number 4", 4, 4.0));
-            cart.Add(new GridViewItem("Number 5", 5, 4.0));
-            GridViewItem tmp = new GridViewItem();
-            tmp.Item = "SubTotal";
-            tmp.Price = 20.00;
-            cart.Add(tmp);
-            tmp.Item = "Tax";
-            tmp.Price = 20.00;
-            cart.Add(tmp);
-            tmp.Item = "Total";
-            tmp.Price = 20.00;
-            cart.Add(tmp);
+            string username = System.Web.HttpContext.Current.User.Identity.Name;
+            WscDbDataContext db = new WscDbDataContext();
+            Customer currentUser = db.Customers.Where(c => (c.UserName == username)).Single();
+
+            cart = (Cart)Session["CurrentCart"];
+            if (cart == null)
+                throw new Exception("Missing Cart unable to proceed");
+
+            currentUser.Cart = cart;
+            Session["CurrentCustomer"] = currentUser;
+
+            List<CheckoutItem> source = new List<CheckoutItem>();
+
+            foreach(CartItem item in cart)
+            {
+                source.Add(new CheckoutItem(item.Item.Name, 
+                    item.Message, 
+                    item.Quantity.ToString(), 
+                    String.Format("{0:c}", item.Price), 
+                    String.Format("{0:c}", item.LineTotal)
+                    )
+                );
+            }
+
+            decimal subTotal = cart.GetSubTotal();
+            decimal tax = subTotal * 0.05m;
+            decimal total = subTotal + tax;
+
+            source.Add(new CheckoutItem("Subtotal", "", "", "", String.Format("{0:c}", subTotal)));
+            source.Add(new CheckoutItem("Tax", "", "", "", String.Format("{0:c}", tax)));
+            source.Add(new CheckoutItem("Total", "", "", "", String.Format("{0:c}", total)));
 
             Session["Cart"] = cart;
 
-            gvTransaction.DataSource = cart;
+            gvTransaction.DataSource = source;
+
             gvTransaction.DataBind();
         }
         else
         {
-            cart = (List<GridViewItem>)Session["Cart"];
+            cart = (Cart)Session["Cart"];
         }
     }
 }
