@@ -16,20 +16,21 @@
     Width="497px"></asp:TextBox>
     <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" 
         ControlToValidate="txtMessage" Display="Dynamic" 
-        ErrorMessage="An engraving/printing message is required"></asp:RequiredFieldValidator>
+        ErrorMessage="An engraving/printing message is required" 
+        ValidationGroup="addGrp"></asp:RequiredFieldValidator>
 <br />
     <asp:TextBox ID="txtQty" runat="server"></asp:TextBox>
     <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" 
         ControlToValidate="txtQty" Display="Dynamic" 
-        ErrorMessage="A quantity is required"></asp:RequiredFieldValidator>
+        ErrorMessage="A quantity is required" ValidationGroup="addGrp"></asp:RequiredFieldValidator>
     <asp:CompareValidator ID="CompareValidator1" runat="server" 
         ControlToValidate="txtQty" Display="Dynamic" 
         ErrorMessage="Quantity must be a number" Operator="DataTypeCheck" 
-        Type="Integer"></asp:CompareValidator>
+        Type="Integer" ValidationGroup="addGrp"></asp:CompareValidator>
     <br />
     <asp:Label ID="lblDebug" runat="server"></asp:Label>
 <br />
 <asp:Button ID="btnCart" runat="server" Text="Add To Cart" Width="133px" 
-        onclick="btnCart_Click" />
+        onclick="btnCart_Click" ValidationGroup="addGrp" />
 </asp:Content>
 

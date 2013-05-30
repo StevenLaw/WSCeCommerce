@@ -17,9 +17,11 @@
                 <asp:LinkButton ID="lnkCart" runat="server" PostBackUrl="~/ViewCart.aspx">View Cart</asp:LinkButton>
             </div>
             <div class="loginView">
-                <asp:LoginView ID="LoginView1" runat="server">
+                &nbsp;<asp:LoginView ID="LoginView1" runat="server">
                     <AnonymousTemplate>
                         <asp:LoginStatus ID="LoginStatus1" runat="server" />
+                        <asp:LinkButton ID="LinkButton1" runat="server" 
+                            PostBackUrl="~/Registration.aspx">Sign in</asp:LinkButton>
                     </AnonymousTemplate>
                     <LoggedInTemplate>
                         <asp:LoginName ID="LoginName1" runat="server" /> <asp:LoginStatus ID="LoginStatus2" runat="server" />

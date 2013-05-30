@@ -5,34 +5,61 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
+
+/// <summary>
+/// The cart contents are displayed here for review purposes and the customer can choose where they 
+/// want the items to be sent
+/// </summary>
 public partial class Customer_pgCheckout : System.Web.UI.Page
 {
     private Cart cart;
 
+    /// <summary>
+    /// This is used to hold the data for the GridView
+    /// </summary>
     private struct CheckoutItem
     {
         public string Item { get; set; }
         public string Message { get; set; }
         public string Quantity { get; set; }
         public string Price { get; set; }
-        public string Total { get; set; }
+        public string LineTotal { get; set; }
 
-        public CheckoutItem(string item, string message, string quantity, string price, string total)
+        /// <summary>
+        /// Initializes a new instance of the <see cref="CheckoutItem"/> struct.
+        /// </summary>
+        /// <param name="item">The item.</param>
+        /// <param name="message">The printing/engraving message.</param>
+        /// <param name="quantity">The quantity of the items in the order.</param>
+        /// <param name="price">The price.</param>
+        /// <param name="lineTotal">The total of that particular item.</param>
+        public CheckoutItem(string item, string message, string quantity, string price, string lineTotal)
             : this()
         {
             Item = item;
             Message = message;
             Quantity = quantity;
             Price = price;
-            Total = total;
+            LineTotal = lineTotal;
         }
     }
 
+    /// <summary>
+    /// Handles the Load event of the Page control.
+    /// </summary>
+    /// <remarks>
+    /// Sets the datasource for the GridView and adds the totals onto the end of it.
+    /// </remarks>
+    /// <param name="sender">The source of the event.</param>
+    /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+    /// <exception cref="Exception">Missing Cart unable to proceed</exception>
     protected void Page_Load(object sender, EventArgs e)
     {
         if (!IsPostBack)
         {
+            // Retrieve the current user's username
             string username = System.Web.HttpContext.Current.User.Identity.Name;
+            // Create an instance of the data context and retrieve the user with current username
             WscDbDataContext db = new WscDbDataContext();
             Customer currentUser = db.Customers.Where(c => (c.UserName == username)).Single();
 
@@ -45,6 +72,7 @@ public partial class Customer_pgCheckout : System.Web.UI.Page
 
             List<CheckoutItem> source = new List<CheckoutItem>();
 
+            // Transfer the contents of the cart into the CheckoutItem list
             foreach(CartItem item in cart)
             {
                 source.Add(new CheckoutItem(item.Item.Name, 
@@ -60,6 +88,7 @@ public partial class Customer_pgCheckout : System.Web.UI.Page
             decimal tax = subTotal * 0.05m;
             decimal total = subTotal + tax;
 
+            // Add the totals to the GridView
             source.Add(new CheckoutItem("Subtotal", "", "", "", String.Format("{0:c}", subTotal)));
             source.Add(new CheckoutItem("Tax", "", "", "", String.Format("{0:c}", tax)));
             source.Add(new CheckoutItem("Total", "", "", "", String.Format("{0:c}", total)));
@@ -67,7 +96,6 @@ public partial class Customer_pgCheckout : System.Web.UI.Page
             Session["Cart"] = cart;
 
             gvTransaction.DataSource = source;
-
             gvTransaction.DataBind();
         }
         else
