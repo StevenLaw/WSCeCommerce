@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Net.Mail;
+using System.Web.Security;
 
 public partial class Registration : System.Web.UI.Page
 {
@@ -69,6 +70,6 @@ public partial class Registration : System.Web.UI.Page
             throw new Exception("There was a database error:\n" + ex.Message);
         }
 
-
+        Roles.AddUserToRole(CreateUserWizard1.UserName, "Customer");
     }
 }
