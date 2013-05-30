@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Web.Security;
 
 public partial class Item : System.Web.UI.Page
 {
@@ -63,6 +64,12 @@ public partial class Item : System.Web.UI.Page
         if (Session["CurrentCustomer"] == null)
         {
             WscDbDataContext db = new WscDbDataContext();
+            int numCustomers = db.Customers.Where(c => (c.UserName == username)).Count();
+            if (username != "" && numCustomers == 0)
+            {
+                FormsAuthentication.SignOut();
+                Response.Redirect("~/Catalogue.aspx");
+            }
             if (username == "")
                 currentCustomer = new Customer();
             else
