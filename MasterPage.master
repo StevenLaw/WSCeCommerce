@@ -21,7 +21,7 @@
                     <AnonymousTemplate>
                         <asp:LoginStatus ID="LoginStatus1" runat="server" />
                         <asp:LinkButton ID="LinkButton1" runat="server" 
-                            PostBackUrl="~/Registration.aspx">Sign in</asp:LinkButton>
+                            PostBackUrl="~/Registration.aspx">Sign up</asp:LinkButton>
                     </AnonymousTemplate>
                     <LoggedInTemplate>
                         <asp:LoginName ID="LoginName1" runat="server" /> <asp:LoginStatus ID="LoginStatus2" runat="server" />
