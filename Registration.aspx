@@ -11,7 +11,8 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
     <p>
         <asp:CreateUserWizard ID="CreateUserWizard1" runat="server" 
-            oncreateduser="CreateUserWizard1_CreatedUser">
+            oncreateduser="CreateUserWizard1_CreatedUser" 
+            oncontinuebuttonclick="CreateUserWizard1_ContinueButtonClick">
             <WizardSteps>
                 <asp:WizardStep runat="server" Title="Personal Information">
                     <table class="style1">

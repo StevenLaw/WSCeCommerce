@@ -10,6 +10,6 @@
     Williams Specialty Company is a private business that provides printing and 
     engraving services on different products. Customers are allowed customize their 
     products as desired. Trophies and plaques are available for engraving, and mugs 
-    and shirts are available for printing.
+    and shirts are available for printing.  
 </asp:Content>
 

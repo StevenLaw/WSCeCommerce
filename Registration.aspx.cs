@@ -72,4 +72,8 @@ public partial class Registration : System.Web.UI.Page
 
         Roles.AddUserToRole(CreateUserWizard1.UserName, "Customer");
     }
+    protected void CreateUserWizard1_ContinueButtonClick(object sender, EventArgs e)
+    {
+        Response.Redirect("~/Default.aspx");
+    }
 }
