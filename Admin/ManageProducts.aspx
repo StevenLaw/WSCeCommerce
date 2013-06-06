@@ -17,7 +17,10 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
     <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" 
-        DataKeyNames="PID" DataSourceID="ldsProducts" AllowPaging="True">
+        DataKeyNames="PID" DataSourceID="ldsProducts" AllowPaging="True" 
+        BackColor="White" BorderColor="#DEDFDE" BorderStyle="None" BorderWidth="1px" 
+        CellPadding="4" ForeColor="Black" GridLines="Vertical">
+        <AlternatingRowStyle BackColor="White" />
         <Columns>
             <asp:BoundField DataField="PID" HeaderText="PID" InsertVisible="False" 
                 ReadOnly="True" SortExpression="PID" />
@@ -112,6 +115,15 @@
             </asp:TemplateField>
             <asp:CommandField ShowDeleteButton="True" ButtonType="Button" />
         </Columns>
+        <FooterStyle BackColor="#CCCC99" />
+        <HeaderStyle BackColor="#6B696B" Font-Bold="True" ForeColor="White" />
+        <PagerStyle BackColor="#F7F7DE" ForeColor="Black" HorizontalAlign="Right" />
+        <RowStyle BackColor="#F7F7DE" />
+        <SelectedRowStyle BackColor="#CE5D5A" Font-Bold="True" ForeColor="White" />
+        <SortedAscendingCellStyle BackColor="#FBFBF2" />
+        <SortedAscendingHeaderStyle BackColor="#848384" />
+        <SortedDescendingCellStyle BackColor="#EAEAD3" />
+        <SortedDescendingHeaderStyle BackColor="#575357" />
     </asp:GridView>
     <asp:LinqDataSource ID="ldsProducts" runat="server" 
         ContextTypeName="WscDbDataContext" EntityTypeName="" TableName="Products" 
@@ -183,10 +195,12 @@
                 Image Upload</td>
             <td>
                 <asp:FileUpload ID="fileImage" runat="server" />
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator8" runat="server" 
+                    Display="Dynamic" ErrorMessage="*" ValidationGroup="Add"></asp:RequiredFieldValidator>
             </td>
         </tr>
     </table>
-    <br />
+  <br />
     <asp:Button ID="btnAdd" runat="server" Text="Add Item" onclick="btnAdd_Click" 
         ValidationGroup="Add" />
     <br />
