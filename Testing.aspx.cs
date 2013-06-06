@@ -44,27 +44,27 @@ public partial class Testing : System.Web.UI.Page
             gvTest.DataSource = test;
             gvTest.DataBind();
             
-            Customer c = new Customer() { Cart = test };
-            Transaction t = c.CreateTransaction();
+        //    Customer c = new Customer() { Cart = test };
+        //    Transaction t = c.CreateTransaction();
 
-            var trans = t.OrderLines.AsEnumerable();
+        //    var trans = t.OrderLines.AsEnumerable();
 
-            gvTest0.DataSource = trans;
-            gvTest0.DataBind();
+        //    gvTest0.DataSource = trans;
+        //    gvTest0.DataBind();
 
-            decimal subtotal0 = t.GetSubTotal();
-            decimal tax0 = subtotal0 * 0.05m;
-            decimal total0 = tax0 + subtotal0;
-            lblSubtotal0.Text = String.Format("{0:C}", subtotal0);
-            lblTax0.Text = String.Format("{0:C}", tax0);
-            lblTotal0.Text = String.Format("{0:C}", total0);
-        }
-        else
-        {
-            test = (Cart)Session["TestCart"];
+        //    decimal subtotal0 = t.GetSubTotal();
+        //    decimal tax0 = subtotal0 * 0.05m;
+        //    decimal total0 = tax0 + subtotal0;
+        //    lblSubtotal0.Text = String.Format("{0:C}", subtotal0);
+        //    lblTax0.Text = String.Format("{0:C}", tax0);
+        //    lblTotal0.Text = String.Format("{0:C}", total0);
+        //}
+        //else
+        //{
+        //    test = (Cart)Session["TestCart"];
 
-            gvTest.DataSource = test;
-            gvTest.DataBind();
+        //    gvTest.DataSource = test;
+        //    gvTest.DataBind();
         }
 
         decimal subtotal = test.GetSubTotal();

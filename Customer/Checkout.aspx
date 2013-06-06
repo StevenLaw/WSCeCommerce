@@ -27,23 +27,35 @@
     <asp:Label ID="lblError" runat="server" ForeColor="Red"></asp:Label>
     <br />
     <asp:RadioButton ID="rbtnUseOwn" runat="server" 
-        Text="I would Like to use my own Address" GroupName="shipGroup" />
+        Text="I would Like to use my own Address" GroupName="shipGroup" 
+        AutoPostBack="True" oncheckedchanged="CheckedChanged" />
     <br />
     <asp:RadioButton ID="rbtnUseOther" runat="server" 
-        Text="I would like to use another address" GroupName="shipGroup" />
+        Text="I would like to use another address" GroupName="shipGroup" 
+    oncheckedchanged="CheckedChanged" AutoPostBack="True" />
     <br />
     <div class="descriptor">Name:</div>
-    <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
+    <asp:TextBox ID="txtName" runat="server" Enabled="False"></asp:TextBox>
+    <asp:RequiredFieldValidator ID="rfvName" runat="server" 
+        ErrorMessage="RequiredFieldValidator" Enabled="False" 
+    ValidationGroup="Pay" ControlToValidate="txtName"></asp:RequiredFieldValidator>
     <br />
     <div class="descriptor">Street:</div>
-    <asp:TextBox ID="TextBox2" runat="server"></asp:TextBox>
+    <asp:TextBox ID="txtStreet" runat="server" Enabled="False"></asp:TextBox>
+    <asp:RequiredFieldValidator ID="rfvStreet" runat="server" 
+        ErrorMessage="RequiredFieldValidator" Enabled="False" 
+    ValidationGroup="Pay" ControlToValidate="txtStreet"></asp:RequiredFieldValidator>
     <br />
     <div class="descriptor">City:</div>
-    <asp:TextBox ID="TextBox3" runat="server"></asp:TextBox>
+    <asp:TextBox ID="txtCity" runat="server" Enabled="False"></asp:TextBox>
+    <asp:RequiredFieldValidator ID="rfvCity" runat="server" 
+        ErrorMessage="RequiredFieldValidator" Enabled="False" 
+    ValidationGroup="Pay" ControlToValidate="txtCity"></asp:RequiredFieldValidator>
     <br />
     <div class="descriptor">Province/State:</div>
-    <asp:DropDownList ID="DropDownList1" runat="server" 
-        DataSourceID="ldsProvinceState" DataTextField="Name" DataValueField="PSCode">
+    <asp:DropDownList ID="ddlProvState" runat="server" 
+        DataSourceID="ldsProvinceState" DataTextField="Name" 
+    DataValueField="PSCode" Enabled="False">
     </asp:DropDownList>
     <asp:LinqDataSource ID="ldsProvinceState" runat="server" 
         ContextTypeName="WscDbDataContext" EntityTypeName="" 
@@ -51,15 +63,24 @@
     </asp:LinqDataSource>
     <br />
     <div class="descriptor">Country:</div>
-    <asp:TextBox ID="TextBox4" runat="server"></asp:TextBox>
+    <asp:DropDownList ID="ddlCountry" runat="server" Enabled="False" 
+    style="margin-bottom: 0px">
+        <asp:ListItem>Canada</asp:ListItem>
+        <asp:ListItem>United States</asp:ListItem>
+    </asp:DropDownList>
     <br />
     <div class="descriptor">Postal/Zip Code:</div>
-    <asp:TextBox ID="TextBox5" runat="server"></asp:TextBox>
+    <asp:TextBox ID="txtPostal" runat="server" Enabled="False"></asp:TextBox>
+    <asp:RequiredFieldValidator ID="rfvPostal" runat="server" 
+        ErrorMessage="RequiredFieldValidator" Enabled="False" 
+    ValidationGroup="Pay" ControlToValidate="txtPostal"></asp:RequiredFieldValidator>
     <br />
     <asp:RadioButton ID="rbtnPickup" runat="server" GroupName="shipGroup" 
-        Text="I would like to pickup from the store" />
+        Text="I would like to pickup from the store" AutoPostBack="True" 
+        oncheckedchanged="CheckedChanged" />
     <br />
-    <asp:Button ID="btnPayPal" runat="server" Text="Pay with PayPal" />
+    <asp:Button ID="btnPayPal" runat="server" Text="Pay with PayPal" 
+        onclick="btnPayPal_Click" ValidationGroup="Pay" />
     <asp:Button ID="btnReturn" runat="server" Text="Return to Cart" 
         PostBackUrl="~/ViewCart.aspx" />
 </asp:Content>

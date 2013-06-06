@@ -8,10 +8,19 @@ using System.Web;
 /// </summary>
 public partial class Transaction
 {
-    public void AddOrderLine(Product prod, int quantity, decimal price, string message, string image)
+    public OrderLine CreateOrderLine(WscDbDataContext db, Product prod, int quantity, decimal price, string message, string image)
     {
-        this.OrderLines.Add(new OrderLine() { Product = prod, Quantity = quantity, PriceAtSale = price, 
-            Message = message, PrintImage = image });
+        OrderLine tmp = new OrderLine() { 
+            PID = prod.PID, 
+            TransactionId = this.TransactionId,
+            Completed = false, Quantity = quantity, 
+            Product = prod, 
+            PriceAtSale = price, 
+            Transaction = this, 
+            PrintImage = image, 
+            Message = message };
+
+        return tmp;
     }
 
     /// <summary>
