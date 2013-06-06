@@ -16,11 +16,16 @@ public partial class Customer
     /// <remarks>
     /// We may wish to have the code to save the transaction into the database here.
     /// </remarks>
-    public Transaction CreateTransaction()
+    public Transaction CreateTransaction(WscDbDataContext db)
     {
         Transaction t = new Transaction();
+        OrderLine tmp;
         foreach (CartItem item in Cart)
-            t.AddOrderLine(item.Item, item.Quantity, item.Price, item.Message, item.PrintImage);
+        {
+            tmp = t.CreateOrderLine(db, item.Item, item.Quantity, item.Price, item.Message, item.PrintImage);
+            db.OrderLines.InsertOnSubmit(tmp);
+        }
+        
         return t;
     }
 }

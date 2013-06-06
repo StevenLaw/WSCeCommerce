@@ -20,12 +20,6 @@
         <elementListCompartment Id="d8a56ac5-538a-49ce-aa92-94c4f77dc11e" absoluteBounds="3.515, 6.21, 1.9700000000000002, 2.364705403645833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="eabeed45-001d-4662-865e-09575c36c5ba" absoluteBounds="9, 8.125, 2, 2.1554996744791666">
-      <DataClassMoniker Name="/WscDbDataContext/OrderLine" />
-      <nestedChildShapes>
-        <elementListCompartment Id="6846f585-06b1-43f0-98ce-62e1b9c10c76" absoluteBounds="9.015, 8.585, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
-      </nestedChildShapes>
-    </classShape>
     <classShape Id="4e19ed2b-4ef8-4821-8f63-a09f77712bc5" absoluteBounds="6.25, 10.125, 2, 2.1554996744791666">
       <DataClassMoniker Name="/WscDbDataContext/Product" />
       <nestedChildShapes>
@@ -44,53 +38,59 @@
         <elementListCompartment Id="4525c814-3816-45d7-a50a-4cba4e668dac" absoluteBounds="0.765, 3.96, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(8.25 : 6.67390055338542); (9 : 6.67390055338542)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(8.25 : 6.67390055338542); (9 : 6.67390055338542)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/WscDbDataContext/Transaction/Transaction_Address" />
       <nodes>
         <classShapeMoniker Id="fbc580f2-09de-4686-a4aa-264bd4894edf" />
         <classShapeMoniker Id="4e3087b1-36b0-48ea-bb5e-aca1395ef742" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(5.5 : 7.26044840494792); (6.25 : 7.26044840494792)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(5.5 : 7.26044840494792); (6.25 : 7.26044840494792)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/WscDbDataContext/Customer/Customer_Transaction" />
       <nodes>
         <classShapeMoniker Id="dd51572f-9a20-466e-b486-1844c55ab332" />
         <classShapeMoniker Id="fbc580f2-09de-4686-a4aa-264bd4894edf" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(8.25 : 8.14589680989583); (8.625 : 8.52089680989583); (8.625 : 7.75); (9 : 8.125)]" fixedFrom="NotFixed" fixedTo="NotFixed">
-      <AssociationMoniker Name="/WscDbDataContext/Transaction/Transaction_OrderLine" />
-      <nodes>
-        <classShapeMoniker Id="fbc580f2-09de-4686-a4aa-264bd4894edf" />
-        <classShapeMoniker Id="eabeed45-001d-4662-865e-09575c36c5ba" />
-      </nodes>
-    </associationConnector>
-    <associationConnector edgePoints="[(8.25 : 11.2805001744792); (10 : 11.2805001744792); (10 : 10.2804996744792)]" fixedFrom="Algorithm" fixedTo="Algorithm">
-      <AssociationMoniker Name="/WscDbDataContext/Product/Product_OrderLine" />
-      <nodes>
-        <classShapeMoniker Id="4e19ed2b-4ef8-4821-8f63-a09f77712bc5" />
-        <classShapeMoniker Id="eabeed45-001d-4662-865e-09575c36c5ba" />
-      </nodes>
-    </associationConnector>
-    <associationConnector edgePoints="[(5.5 : 11.1931469726562); (6.25 : 11.1931469726562)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(5.5 : 11.1931469726562); (6.25 : 11.1931469726562)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/WscDbDataContext/ProductType/ProductType_Product" />
       <nodes>
         <classShapeMoniker Id="3e7c84ee-f474-46ae-b031-b0f9aac6678e" />
         <classShapeMoniker Id="4e19ed2b-4ef8-4821-8f63-a09f77712bc5" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(2.75 : 4.0624995); (10 : 4.0624995); (10 : 4.625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(2.75 : 4.0624995); (10 : 4.0624995); (10 : 4.625)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/WscDbDataContext/ProvinceState/ProvinceState_Address" />
       <nodes>
         <classShapeMoniker Id="ef383c72-53ce-4f37-8565-00c83b7c0aaf" />
         <classShapeMoniker Id="4e3087b1-36b0-48ea-bb5e-aca1395ef742" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(1.75 : 4.69399251302083); (1.75 : 7.21235270182292); (3.5 : 7.21235270182292)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(1.75 : 4.69399251302083); (1.75 : 7.21235270182292); (3.5 : 7.21235270182292)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/WscDbDataContext/ProvinceState/ProvinceState_Customer" />
       <nodes>
         <classShapeMoniker Id="ef383c72-53ce-4f37-8565-00c83b7c0aaf" />
         <classShapeMoniker Id="dd51572f-9a20-466e-b486-1844c55ab332" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="27b17ddf-4c83-489f-beff-2483e4294f23" absoluteBounds="9, 8.125, 2, 2.3478011067708335">
+      <DataClassMoniker Name="/WscDbDataContext/OrderLine" />
+      <nestedChildShapes>
+        <elementListCompartment Id="b1f4cd22-7057-4cfe-a294-71ca1b69a98a" absoluteBounds="9.015, 8.585, 1.9700000000000002, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(8.25 : 11.376650890625); (10 : 11.376650890625); (10 : 10.4728011067708)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/WscDbDataContext/Product/Product_OrderLine" />
+      <nodes>
+        <classShapeMoniker Id="4e19ed2b-4ef8-4821-8f63-a09f77712bc5" />
+        <classShapeMoniker Id="27b17ddf-4c83-489f-beff-2483e4294f23" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(8.25 : 8.14589680989583); (8.625 : 8.52089680989583); (8.625 : 7.75); (9 : 8.125)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/WscDbDataContext/Transaction/Transaction_OrderLine" />
+      <nodes>
+        <classShapeMoniker Id="fbc580f2-09de-4686-a4aa-264bd4894edf" />
+        <classShapeMoniker Id="27b17ddf-4c83-489f-beff-2483e4294f23" />
       </nodes>
     </associationConnector>
   </nestedChildShapes>

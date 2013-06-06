@@ -43,19 +43,6 @@
       <Association Name="ProvinceState_Customer" Member="ProvinceState" ThisKey="ProvState" OtherKey="PSCode" Type="ProvinceState" IsForeignKey="true" />
     </Type>
   </Table>
-  <Table Name="dbo.OrderLine" Member="OrderLines">
-    <Type Name="OrderLine">
-      <Column Name="TransactionId" Type="System.Decimal" DbType="Decimal(10,0) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="PID" Type="System.Decimal" DbType="Decimal(5,0) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="Quantity" Type="System.Decimal" DbType="Decimal(7,0) NOT NULL" CanBeNull="false" />
-      <Column Name="PriceAtSale" Type="System.Decimal" DbType="Money NOT NULL" CanBeNull="false" />
-      <Column Name="Completed" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
-      <Column Name="Message" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
-      <Column Name="PrintImage" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
-      <Association Name="Transaction_OrderLine" Member="Transaction" ThisKey="TransactionId" OtherKey="TransactionId" Type="Transaction" IsForeignKey="true" />
-      <Association Name="Product_OrderLine" Member="Product" ThisKey="PID" OtherKey="PID" Type="Product" IsForeignKey="true" />
-    </Type>
-  </Table>
   <Table Name="dbo.Product" Member="Products">
     <Type Name="Product">
       <Column Name="PID" Type="System.Decimal" DbType="Decimal(5,0) NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -83,6 +70,20 @@
       <Column Name="Name" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
       <Association Name="ProvinceState_Address" Member="Addresses" ThisKey="PSCode" OtherKey="ProvState" Type="Address" />
       <Association Name="ProvinceState_Customer" Member="Customers" ThisKey="PSCode" OtherKey="ProvState" Type="Customer" />
+    </Type>
+  </Table>
+  <Table Name="dbo.OrderLine" Member="OrderLines">
+    <Type Name="OrderLine">
+      <Column Name="OrderLineId" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="TransactionId" Type="System.Decimal" DbType="Decimal(10,0) NOT NULL" CanBeNull="false" />
+      <Column Name="PID" Type="System.Decimal" DbType="Decimal(5,0) NOT NULL" CanBeNull="false" />
+      <Column Name="Quantity" Type="System.Decimal" DbType="Decimal(7,0) NOT NULL" CanBeNull="false" />
+      <Column Name="PriceAtSale" Type="System.Decimal" DbType="Money NOT NULL" CanBeNull="false" />
+      <Column Name="Completed" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="Message" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Column Name="PrintImage" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Association Name="Product_OrderLine" Member="Product" ThisKey="PID" OtherKey="PID" Type="Product" IsForeignKey="true" />
+      <Association Name="Transaction_OrderLine" Member="Transaction" ThisKey="TransactionId" OtherKey="TransactionId" Type="Transaction" IsForeignKey="true" />
     </Type>
   </Table>
 </Database>
