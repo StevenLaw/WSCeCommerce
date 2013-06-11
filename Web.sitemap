@@ -14,6 +14,7 @@
     <siteMapNode url ="" title ="Employee" description ="Employee area">
       <siteMapNode url ="Employee/ViewTransaction.aspx" title ="View Transactions" description ="View the recorded transactions" />
       <siteMapNode url ="Employee/ManageInventory.aspx" title ="Manage Inventory" description ="Manage inventory numbers" />
+      <siteMapNode url="Employee/ViewAvailability.aspx" title="View Availability" description="View the availability of the product" />
     </siteMapNode>
     <siteMapNode url ="" title ="Administration" description ="Administration area">
       <siteMapNode url ="Admin/ManageEmployees.aspx" title ="Manage Employees" description ="Manage the employee's statuses" />

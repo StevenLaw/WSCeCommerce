@@ -226,5 +226,6 @@
         Select="new (CustomerId, UserName, FName, LName, Address, City, PostalZip, Country, Phone, Email, Transactions, ProvinceState.Name As ProvStateName)" 
         TableName="Customers">
     </asp:LinqDataSource>
+    <br />
 </asp:Content>
 

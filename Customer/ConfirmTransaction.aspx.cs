@@ -9,8 +9,8 @@ using PayPal.PayPalAPIInterfaceService.Model;
 
 public partial class Customer_ConfirmTransaction : System.Web.UI.Page
 {
-    string token;
-    string payerID;
+    private string token;
+    private string payerID;
 
     /// <summary>
     /// Handles the Load event of the Page control.
@@ -41,6 +41,9 @@ public partial class Customer_ConfirmTransaction : System.Web.UI.Page
         }
         else
             throw new Exception("Missing PayPay Payer ID");
+
+        if (Session["Total"] != null)
+            lblOrderTotal.Text = "Order Total: " + Session["Total"].ToString();
     }
 
     /// <summary>

@@ -92,6 +92,8 @@ public partial class Customer_pgCheckout : System.Web.UI.Page
             decimal shipping = 12.0m;
             decimal total = subTotal + tax + shipping;
 
+            Session["Total"] = total;
+
             // Add the totals to the GridView
             source.Add(new CheckoutItem("Subtotal", "", "", "", String.Format("{0:c}", subTotal)));
             source.Add(new CheckoutItem("Tax", "", "", "", String.Format("{0:c}", tax)));
