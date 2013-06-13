@@ -65,7 +65,7 @@
                     <asp:Label ID="Label2" runat="server" Text='<%# Bind("Price", "{0:C}") %>'></asp:Label>
                 </ItemTemplate>
                 <EditItemTemplate>
-                    <asp:TextBox ID="TextBox3" runat="server" Text='<%# Bind("Price", "{0:C}") %>' 
+                    <asp:TextBox ID="TextBox3" runat="server" Text='<%# Bind("Price") %>' 
                         Width="58px"></asp:TextBox>
                     <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" 
                         ControlToValidate="TextBox3" Display="Dynamic" ErrorMessage="*"></asp:RequiredFieldValidator>
@@ -196,7 +196,8 @@
             <td>
                 <asp:FileUpload ID="fileImage" runat="server" />
                 <asp:RequiredFieldValidator ID="RequiredFieldValidator8" runat="server" 
-                    Display="Dynamic" ErrorMessage="*" ValidationGroup="Add"></asp:RequiredFieldValidator>
+                    Display="Dynamic" ErrorMessage="*" ValidationGroup="Add" 
+                    ControlToValidate="fileImage"></asp:RequiredFieldValidator>
             </td>
         </tr>
     </table>

@@ -14,7 +14,7 @@ public partial class Employee_ViewAvailability : System.Web.UI.Page
             WscDbDataContext db = new WscDbDataContext();
             var availability = from o in db.OrderLines
                                from p in db.Products
-                               where o.PID == p.PID
+                               where o.PID == p.PID && o.Completed.Equals(false)
                                group new {o,p} by new { p.PID, p.Name, p.Quantity } into a
                                select new { 
                                    ProductId = a.Key.PID,
