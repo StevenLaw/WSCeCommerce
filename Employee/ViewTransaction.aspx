@@ -76,6 +76,15 @@
             </asp:TemplateField>
             <asp:BoundField DataField="Quantity" HeaderText="Quantity" ReadOnly="True" 
                 SortExpression="Quantity" />
+            <asp:TemplateField HeaderText="Availability">
+                <ItemTemplate>
+                    <asp:Label ID="Label2" runat="server" Text='<%# Eval("Product.Quantity") %>'></asp:Label>
+                </ItemTemplate>
+                <EditItemTemplate>
+                    <asp:TextBox ID="TextBox1" runat="server" 
+                        Text='<%# Bind("Product.Quantity") %>'></asp:TextBox>
+                </EditItemTemplate>
+            </asp:TemplateField>
             <asp:BoundField DataField="PriceAtSale" HeaderText="Price at Sale" 
                 SortExpression="PriceAtSale" DataFormatString="{0:c}" ReadOnly="True" />
             <asp:CheckBoxField DataField="Completed" HeaderText="Completed" 

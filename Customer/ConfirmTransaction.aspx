@@ -10,6 +10,7 @@
     Payer ID:
     <asp:Label ID="lblPayerID" runat="server" Text="Label"></asp:Label>
     <br />
+    <asp:Label ID="lblOrderTotal" runat="server" Text=""></asp:Label>
     <br />
     <asp:Button ID="btnConfirm" runat="server" onclick="btnConfirm_Click" 
         Text="Confirm" />

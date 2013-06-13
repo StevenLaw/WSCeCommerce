@@ -76,5 +76,8 @@ public partial class Testing : System.Web.UI.Page
 
         //Customer tst = new Customer();
         //string x = tst.ProvinceState.Name;
+
+        OrderLine o = new OrderLine();
+        //o.Product.Quantity
     }
 }
