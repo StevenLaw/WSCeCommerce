@@ -39,8 +39,8 @@
                         ControlToValidate="TextBox1" Display="Dynamic" ErrorMessage="*"></asp:RequiredFieldValidator>
                     <br />
                     <asp:CompareValidator ID="CompareValidator1" runat="server" 
-                        ControlToValidate="TextBox1" Display="Dynamic" ErrorMessage="*Must be a number" 
-                        Operator="DataTypeCheck" Type="Integer"></asp:CompareValidator>
+                        ControlToValidate="TextBox1" Display="Dynamic" ErrorMessage="*Must be a positive whole number" 
+                        Operator="GreaterThanEqual" Type="Integer" ValueToCompare="0"></asp:CompareValidator>
                 </EditItemTemplate>
                 <ItemTemplate>
                     <asp:Label ID="Label3" runat="server" Text='<%# Bind("Quantity") %>'></asp:Label>
